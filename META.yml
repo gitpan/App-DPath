@@ -1,0 +1,30 @@
+---
+abstract: 'Cmdline tool around Data::DPath'
+author:
+  - 'Steffen Schwigon <<ss5@renormalist.net>>'
+build_requires:
+  Test::More: 0
+distribution_type: module
+generated_by: 'Module::Install version 0.77'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: App-DPath
+no_index:
+  directory:
+    - inc
+    - t
+requires:
+  App::Cmd: 0
+  Config::INI: 0
+  Data::DPath: 0
+  JSON: 0
+  TAP::DOM: 0
+  YAML::Syck: 0
+  perl: 5.01
+resources:
+  bugtracker: http://rt.cpan.org/NoAuth/ReportBug.html?Queue=App-DPath
+  license: http://dev.perl.org/licenses/
+  repository: git://github.com/renormalist/app-dpath.git
+version: 0.01
