@@ -9,8 +9,8 @@ use Data::DPath 'dpath';
 
 sub opt_spec {
         return (
-                [ "intype|i=s",   "input format, [yaml(default), json, dumper, ini, tap]"  ],
-                [ "outtype|o=s",  "output format, [yaml(default), json, dumper]" ],
+                [ "intype|i=s",   "input format, [yaml(default), json, dumper, ini, tap, xml]"  ],
+                [ "outtype|o=s",  "output format, [yaml(default), json, dumper, xml]" ],
                );
 }
 
@@ -42,7 +42,7 @@ sub read_in {
                 }
         }
 
-        if ($filecontent !~ /[^\s\t\r\n]/ms) {
+        if (not defined $filecontent or $filecontent !~ /[^\s\t\r\n]/ms) {
                 print STDERR "Please provide some input data.\n";
                 exit 1;
         }
@@ -54,6 +54,12 @@ sub read_in {
         elsif ($intype eq "json") {
                 require JSON;
                 $data = JSON::decode_json($filecontent);
+        }
+        elsif ($intype eq "xml")
+        {
+                require XML::Simple;
+                my $xs = new XML::Simple;
+                $data  = $xs->XMLin($filecontent, KeepRoot => 1);
         }
         elsif ($intype eq "ini") {
                 require Config::INI::Reader;
@@ -109,6 +115,12 @@ sub write_out {
             require Data::Dumper;
             print Data::Dumper::Dumper($resultlist);
     }
+    elsif ($outtype eq "xml")
+    {
+            require XML::Simple;
+            my $xs = new XML::Simple;
+            print $xs->XMLout($resultlist, AttrIndent => 1, KeepRoot => 1);
+    }
     else
     {
             die "Unrecognized output type: $outtype";
@@ -121,20 +133,16 @@ sub run {
         my $path    = $args->[0];
         my $file    = $args->[1] || '-';
 
-        my $data   = $self->read_in( $opt, $args, $file );
-        my $result = $self->match(   $opt, $args, $data, $path );
-
-        use Data::Dumper;
+        my $data    = $self->read_in( $opt, $args, $file );
+        my $result  = $self->match(   $opt, $args, $data, $path );
         $self->write_out( $opt, $args, $result );
 }
-
-# $ yourcmd blort --recheck
 
 1;
 
 =head1 NAME
 
-App::DPath::Command::search - The default subcommand to search by dpath, can be omitted
+App::DPath::Command::search - Default subcommand to search by dpath
 
 =head1 FUNCTIONS
 

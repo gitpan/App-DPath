@@ -27,6 +27,7 @@ t/some_tap.dumper
 t/some_tap.ini
 t/some_tap.json
 t/some_tap.tap
+t/some_tap.xml
 t/some_tap.yaml
 t/some_tap_unblessed.dumper
 t/some_tap_unblessed.ini
