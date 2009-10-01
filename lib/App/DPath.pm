@@ -2,11 +2,11 @@ package App::DPath;
 
 use App::Cmd::Setup -app;
 
-use 5.010; # Data::DPath requires it anyway
+use 5.008; # Data::DPath requires it
 use strict;
 use warnings;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 1;
 

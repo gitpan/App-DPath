@@ -4,10 +4,12 @@ use strict;
 use warnings;
 
 use Data::Dumper;
-use Test::More tests => 8;
+use Test::More tests => 16;
 use Test::Deep;
 use JSON;
 use YAML::Syck;
+use Config::General;
+use Data::Structure::Util 'unbless';
 
 BEGIN {
 	use_ok( 'App::DPath' );
@@ -19,8 +21,8 @@ sub check {
         $path       ||= '//lines//description[ value =~ m(use Data::DPath) ]/../_children//data//name[ value eq "Hash two"]/../value';
         $expected   ||= [ "2" ];
         my $program   = "$^X -Ilib script/dpath";
-        my $unblessed = $outtype eq "json" ? "_unblessed" : "";
-        my $infile    = "t/some_tap$unblessed.$intype";
+        #my $unblessed = $outtype eq "json" ? "_unblessed" : "";
+        my $infile    = "t/testdata.$intype";
         my $cmd       = "$program -i $intype -o $outtype '$path' $infile";
         #diag $cmd;
         my $output    = `$cmd`;
@@ -28,10 +30,14 @@ sub check {
         my $result;
         if ($outtype eq "json")
         {
-                $result = JSON::from_json($output);
+                $result = JSON::from_json(unbless $output);
         }
         elsif ($outtype eq "yaml") {
                 $result = YAML::Syck::Load($output);
+        }
+        elsif ($outtype eq "cfggeneral") {
+                my %data = Config::General->new(-String => $output)->getall;
+                $result = \%data;
         }
         elsif ($outtype eq "dumper")
         {
@@ -52,3 +58,14 @@ check (qw(xml dumper), '//description[ value =~ m(use Data::DPath) ]/../_childre
 check (qw(ini dumper), '//description[ value =~ m(use Data::DPath) ]/../number', [ "1" ]);
 check (qw(ini json),   '//description[ value =~ m(use Data::DPath) ]/../number', [ "1" ]);
 check (qw(ini yaml),   '//description[ value =~ m(use Data::DPath) ]/../number', [ "1" ]);
+
+# Config::General is also somewhat special
+check (qw(cfggeneral json), '/etc/base', [ "/usr" ]);
+check (qw(cfggeneral json), '//home', [ "/usr/home/max" ]);
+check (qw(cfggeneral json), '//mono//bl', [ 2 ]);
+check (qw(cfggeneral json), '//log', [ "/usr/log/logfile" ]);
+
+check (qw(cfggeneral yaml), '/etc/base', [ "/usr" ]);
+check (qw(cfggeneral yaml), '//home', [ "/usr/home/max" ]);
+check (qw(cfggeneral yaml), '//mono//bl', [ 2 ]);
+check (qw(cfggeneral yaml), '//log', [ "/usr/log/logfile" ]);
