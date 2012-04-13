@@ -1,0 +1,28 @@
+Revision history for App-DPath
+
+0.04      2012-04-13
+  [Maintenance]
+  - use Dist::Zilla for building
+
+  [new input/output formats]
+  - fix RT#76018: Please provide a UNIX shell friendly output format
+    * intoduce new output format 'flat' for typical 1 or 2 level
+      scalar/hash/array data structures
+  - fix RT#76017 - INI output format broken
+    * now use Config::INI::Serializer
+
+  [bugfixes]
+  - use YAML::Any to decide which YAML to use
+  - "die" instead of "exit" on error
+
+0.03      2009-10-01
+  - add new input type "cfggeneral" for Config::General files
+  - fix JSON tests to now work with explicit unbless
+  - test suite cleanup
+
+0.02      2009-04-26
+  - cleanup docs
+  - add data format "xml" (via XML::Simple)
+
+0.01      2009-04-25
+  - initial version

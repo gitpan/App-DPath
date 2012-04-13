@@ -1,30 +1,69 @@
-use inc::Module::Install;
 
-name     'App-DPath';
-all_from 'lib/App/DPath.pm';
-author   'Steffen Schwigon <<ss5@renormalist.net>>';
-license  'perl';
+use strict;
+use warnings;
 
-build_requires 'Test::More';
-build_requires 'Data::Structure::Util';
+use 5.008;
 
-requires 'YAML::Syck';
-requires 'JSON';
-requires 'TAP::DOM';
-requires 'Config::INI';
-requires 'Data::DPath';
-requires 'XML::Simple';
-requires 'Config::General';
-requires 'App::Cmd' => '0.301';
+use ExtUtils::MakeMaker 6.30;
 
-install_script 'dpath';
 
-repository 'git://github.com/renormalist/app-dpath.git';
-bugtracker 'http://rt.cpan.org/NoAuth/ReportBug.html?Queue=App-DPath';
 
-#makemaker_args dist => { PREOP => 'pod2text lib/App/DPath.pm > README' } ;
+my %WriteMakefileArgs = (
+  "ABSTRACT" => "Cmdline tool around Data::DPath",
+  "AUTHOR" => "Steffen Schwigon <ss5\@renormalist.net>",
+  "BUILD_REQUIRES" => {
+    "Data::Structure::Util" => 0,
+    "Test::Deep" => 0,
+    "Test::More" => "0.88",
+    "YAML::Syck" => 0
+  },
+  "CONFIGURE_REQUIRES" => {
+    "ExtUtils::MakeMaker" => "6.30"
+  },
+  "DISTNAME" => "App-DPath",
+  "EXE_FILES" => [
+    "bin/dpath"
+  ],
+  "LICENSE" => "perl",
+  "NAME" => "App::DPath",
+  "PREREQ_PM" => {
+    "App::Cmd::Setup" => 0,
+    "Config::General" => 0,
+    "Config::INI::Serializer" => 0,
+    "Data::DPath" => 0,
+    "Data::Dumper" => 0,
+    "JSON" => 0,
+    "Scalar::Util" => 0,
+    "TAP::DOM" => 0,
+    "XML::Simple" => 0,
+    "YAML::Any" => 0,
+    "strict" => 0,
+    "warnings" => 0
+  },
+  "VERSION" => "0.04",
+  "test" => {
+    "TESTS" => "t/*.t"
+  }
+);
 
-auto_install;
 
-WriteAll;
+unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
+  my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};
+  my $pp = $WriteMakefileArgs{PREREQ_PM};
+  for my $mod ( keys %$br ) {
+    if ( exists $pp->{$mod} ) {
+      $pp->{$mod} = $br->{$mod} if $br->{$mod} > $pp->{$mod};
+    }
+    else {
+      $pp->{$mod} = $br->{$mod};
+    }
+  }
+}
+
+delete $WriteMakefileArgs{CONFIGURE_REQUIRES}
+  unless eval { ExtUtils::MakeMaker->VERSION(6.52) };
+
+WriteMakefile(%WriteMakefileArgs);
+
+
 

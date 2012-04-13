@@ -1,4 +1,11 @@
 package App::DPath::Command::search;
+BEGIN {
+  $App::DPath::Command::search::AUTHORITY = 'cpan:SCHWIGON';
+}
+{
+  $App::DPath::Command::search::VERSION = '0.04';
+}
+# ABSTRACT: Default subcommand to search by dpath
 
 use App::DPath -command;
 
@@ -6,11 +13,15 @@ use strict;
 use warnings;
 
 use Data::DPath 'dpath';
+use Scalar::Util 'reftype';
 
 sub opt_spec {
         return (
-                [ "intype|i=s",   "input format, [yaml(default), json, dumper, ini, tap, xml]"  ],
-                [ "outtype|o=s",  "output format, [yaml(default), json, dumper, xml]" ],
+                [ "intype|i=s",    "input format, [yaml(default), json, dumper, ini, tap, xml]"  ],
+                [ "outtype|o=s",   "output format, [yaml(default), json, dumper, xml]" ],
+                [ "separator|s=s", "sub entry separator for output format 'flat' (default=;)" ],
+                [ "fb",            "on output format 'flat' use [brackets] around outer arrays" ],
+                [ "fi",            "on output format 'flat' prefix outer array lines with index" ],
                );
 }
 
@@ -18,8 +29,7 @@ sub validate_args {
     my ($self, $opt, $args) = @_;
 
     if (not $args->[0]) {
-            print STDERR "Please specify a dpath.\n";
-            exit 1;
+            die "dpath: please specify a dpath.\n";
     }
 }
 
@@ -36,20 +46,19 @@ sub read_in {
                 }
                 else
                 {
-                        open (my $FH, "<", $file) or die "Cannot open file $file";
+                        open (my $FH, "<", $file) or die "dpath: cannot open input file $file.\n";
                         $filecontent = <$FH>;
                         close $FH;
                 }
         }
 
         if (not defined $filecontent or $filecontent !~ /[^\s\t\r\n]/ms) {
-                print STDERR "Please provide some input data.\n";
-                exit 1;
+                die "dpath: no meaningful input to read.\n";
         }
 
         if ($intype eq "yaml") {
-                require YAML::Syck;
-                $data = YAML::Syck::Load($filecontent);
+                require YAML::Any;
+                $data = YAML::Any::Load($filecontent);
         }
         elsif ($intype eq "json") {
                 require JSON;
@@ -62,8 +71,9 @@ sub read_in {
                 $data  = $xs->XMLin($filecontent, KeepRoot => 1);
         }
         elsif ($intype eq "ini") {
-                require Config::INI::Reader;
-                $data = Config::INI::Reader->read_string($filecontent);
+                require Config::INI::Serializer;
+                my $ini = Config::INI::Serializer->new;
+                $data = $ini->deserialize($filecontent);
         }
         elsif ($intype eq "cfggeneral") {
                 require Config::General;
@@ -81,7 +91,7 @@ sub read_in {
         }
         else
         {
-                die "Unrecognized input type: $intype";
+                die "dpath: unrecognized input format: $intype.\n";
         }
         return $data;
 }
@@ -90,12 +100,101 @@ sub match {
         my ($self, $opt, $args, $data, $path) = @_;
 
         if (not $data) {
-                print STDERR "Please provide proper input data.\n";
-                exit 1;
+                die "dpath: no input data to match.\n";
         }
 
         my @resultlist = dpath($path)->match($data);
         return \@resultlist;
+}
+
+sub _format_flat_inner_scalar {
+    my ($self, $opt, $result) = @_;
+
+    return "$result";
+}
+
+sub _format_flat_inner_array {
+    my ($self, $opt, $result) = @_;
+
+    return join($opt->{separator}, map {
+                                        # only SCALARS allowed (where reftype returns undef)
+                                        die "dpath: unsupported innermost nesting (".reftype($_).") for 'flat' output.\n" if defined reftype($_);
+                                        "".$_
+                                       } @$result);
+}
+
+sub _format_flat_inner_hash {
+    my ($self, $opt, $result) = @_;
+
+    return join($opt->{separator}, map { my $v = $result->{$_};
+                                         # only SCALARS allowed (where reftype returns undef)
+                                         die "dpath: unsupported innermost nesting (".reftype($v).") for 'flat' output.\n" if defined reftype($v);
+                                         "$_=".$v
+                                       } keys %$result);
+}
+
+sub _format_flat_outer {
+    my ($self, $opt, $result) = @_;
+
+    my $output = "";
+    die "dpath: can not flatten data structure (undef) - try other output format.\n" unless defined $result;
+
+    my $A = ""; my $B = ""; if ($opt->{fb}) { $A = "["; $B = "]" }
+    my $fi = $opt->{fi};
+
+    if (!defined reftype $result) { # SCALAR
+            $output .= $result."\n"; # stringify
+    }
+    elsif (reftype $result eq 'ARRAY') {
+            for (my $i=0; $i<@$result; $i++) {
+                    my $entry  = $result->[$i];
+                    my $prefix = $fi ? "$i:" : "";
+                    if (!defined reftype $entry) { # SCALAR
+                            $output .= $prefix.$A.$self->_format_flat_inner_scalar($opt, $entry)."$B\n";
+                    }
+                    elsif (reftype $entry eq 'ARRAY') {
+                            $output .= $prefix.$A.$self->_format_flat_inner_array($opt, $entry)."$B\n";
+                    }
+                    elsif (reftype $entry eq 'HASH') {
+                            $output .= $prefix.$A.$self->_format_flat_inner_hash($opt, $entry)."$B\n";
+                    }
+                    else {
+                            die "dpath: can not flatten data structure (".reftype($entry).").\n";
+                    }
+            }
+    }
+    elsif (reftype $result eq 'HASH') {
+            my @keys = keys %$result;
+            foreach my $key (@keys) {
+                    my $entry = $result->{$key};
+                    if (!defined reftype $entry) { # SCALAR
+                            $output .= "$key:".$self->_format_flat_inner_scalar($opt, $entry)."\n";
+                    }
+                    elsif (reftype $entry eq 'ARRAY') {
+                            $output .= "$key:".$self->_format_flat_inner_array($opt, $entry)."\n";
+                    }
+                    elsif (reftype $entry eq 'HASH') {
+                            $output .= "$key:".$self->_format_flat_inner_hash($opt, $entry)."\n";
+                    }
+                    else {
+                            die "dpath: can not flatten data structure (".reftype($entry).").\n";
+                    }
+            }
+    }
+    else {
+            die "dpath: can not flatten data structure (".reftype($result).") - try other output format.\n";
+    }
+
+    return $output;
+}
+
+sub _format_flat {
+    my ($self, $opt, $resultlist) = @_;
+
+    my $output = "";
+    $opt->{separator} = ";" unless defined $opt->{separator};
+    $output .= $self->_format_flat_outer($opt, $_) foreach @$resultlist;
+    return $output;
 }
 
 sub write_out {
@@ -104,8 +203,8 @@ sub write_out {
     my $outtype = $opt->{outtype} || 'yaml';
     if ($outtype eq "yaml")
     {
-            require YAML::Syck;
-            print YAML::Syck::Dump($resultlist);
+            require YAML::Any;
+            print YAML::Any::Dump($resultlist);
     }
     elsif ($outtype eq "json")
     {
@@ -114,8 +213,9 @@ sub write_out {
             print $json->encode($resultlist);
     }
     elsif ($outtype eq "ini") {
-            require Config::INI::Writer;
-            Config::INI::Writer->write_string($resultlist);
+            require Config::INI::Serializer;
+            my $ini = Config::INI::Serializer->new;
+            print $ini->serialize($resultlist);
     }
     elsif ($outtype eq "dumper")
     {
@@ -128,9 +228,12 @@ sub write_out {
             my $xs = new XML::Simple;
             print $xs->XMLout($resultlist, AttrIndent => 1, KeepRoot => 1);
     }
+    elsif ($outtype eq "flat") {
+            print $self->_format_flat( $opt, $resultlist );
+    }
     else
     {
-            die "Unrecognized output type: $outtype";
+            die "dpath: unrecognized output format: $outtype.";
     }
 }
 
@@ -146,6 +249,12 @@ sub execute {
 }
 
 1;
+
+
+
+=pod
+
+=encoding utf-8
 
 =head1 NAME
 
@@ -176,57 +285,17 @@ Writes out the result set according to format.
 
 =head1 AUTHOR
 
-Steffen Schwigon, C<< <<ss5 at renormalist.net>> >>
+Steffen Schwigon <ss5@renormalist.net>
 
-=head1 BUGS
+=head1 COPYRIGHT AND LICENSE
 
-Please report any bugs or feature requests to C<bug-app-dpath at
-rt.cpan.org>, or through the web interface at
-L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=App-DPath>.  I will
-be notified, and then you'll automatically be notified of progress on
-your bug as I make changes.
+This software is copyright (c) 2012 by Steffen Schwigon.
 
-
-=head1 SUPPORT
-
-You can find documentation for this module with the perldoc command.
-
-    perldoc App::DPath
-
-
-You can also look for information at:
-
-=over 4
-
-=item * RT: CPAN's request tracker
-
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=App-DPath>
-
-=item * AnnoCPAN: Annotated CPAN documentation
-
-L<http://annocpan.org/dist/App-DPath>
-
-=item * CPAN Ratings
-
-L<http://cpanratings.perl.org/d/App-DPath>
-
-=item * Search CPAN
-
-L<http://search.cpan.org/dist/App-DPath/>
-
-=back
-
-
-=head1 ACKNOWLEDGEMENTS
-
-
-=head1 COPYRIGHT & LICENSE
-
-Copyright 2009 Steffen Schwigon, all rights reserved.
-
-This program is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself.
-
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
+
+
+__END__
 
