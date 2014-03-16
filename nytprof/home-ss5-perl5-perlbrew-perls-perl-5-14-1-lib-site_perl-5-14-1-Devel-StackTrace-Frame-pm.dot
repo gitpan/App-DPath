@@ -1,0 +1,32 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_warnings {
+	label="warnings";
+	"warnings::import";
+}
+subgraph cluster_Devel_StackTrace {
+	label="Devel::StackTrace";
+	"Devel::StackTrace::BEGIN@11";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+	"strict::unimport";
+}
+subgraph cluster_Devel_StackTrace_Frame {
+	label="Devel::StackTrace::Frame";
+	"Devel::StackTrace::Frame::BEGIN@7";
+	"Devel::StackTrace::Frame::BEGIN@11";
+	"Devel::StackTrace::Frame::BEGIN@10";
+	"Devel::StackTrace::Frame::BEGIN@2";
+	"Devel::StackTrace::Frame::BEGIN@6";
+}
+"Devel::StackTrace::BEGIN@11" -> "Devel::StackTrace::Frame::BEGIN@6";
+"Devel::StackTrace::BEGIN@11" -> "Devel::StackTrace::Frame::BEGIN@7";
+"Devel::StackTrace::BEGIN@11" -> "Devel::StackTrace::Frame::BEGIN@10";
+"Devel::StackTrace::Frame::BEGIN@11" -> "strict::unimport";
+"Devel::StackTrace::BEGIN@11" -> "Devel::StackTrace::Frame::BEGIN@11";
+"Devel::StackTrace::Frame::BEGIN@7" -> "warnings::import";
+"Devel::StackTrace::BEGIN@11" -> "Devel::StackTrace::Frame::BEGIN@2";
+"Devel::StackTrace::Frame::BEGIN@6" -> "strict::import";
+}

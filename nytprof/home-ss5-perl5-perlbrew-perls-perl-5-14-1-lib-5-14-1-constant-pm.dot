@@ -1,0 +1,79 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Internals {
+	label="Internals";
+	"Internals::SvREADONLY";
+}
+subgraph cluster_Data_DPath_Filters {
+	label="Data::DPath::Filters";
+	"Data::DPath::Filters::BEGIN@15";
+}
+subgraph cluster_Data_DPath_Context {
+	label="Data::DPath::Context";
+	"Data::DPath::Context::BEGIN@64";
+}
+subgraph cluster_vars {
+	label="vars";
+	"vars::import";
+}
+subgraph cluster_Data_DPath_Path {
+	label="Data::DPath::Path";
+	"Data::DPath::Path::BEGIN@27";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+	"strict::unimport";
+}
+subgraph cluster_constant {
+	label="constant";
+	"constant::import";
+	"constant::BEGIN@4";
+	"constant::BEGIN@3";
+	"constant::BEGIN@114";
+	"constant::BEGIN@25";
+	"constant::BEGIN@29";
+	"constant::BEGIN@52";
+	"constant::CORE:regcomp";
+	"constant::CORE:qr";
+	"constant::BEGIN@2";
+	"constant::CORE:match";
+	"constant::BEGIN@6";
+}
+subgraph cluster_utf8 {
+	label="utf8";
+	"utf8::is_utf8";
+}
+subgraph cluster_warnings_register {
+	label="warnings::register";
+	"warnings::register::import";
+}
+subgraph cluster_mro {
+	label="mro";
+	"mro::method_changed_in";
+}
+"Data::DPath::Filters::BEGIN@15" -> "constant::BEGIN@29";
+"constant::import" -> "mro::method_changed_in";
+"Data::DPath::Filters::BEGIN@15" -> "constant::BEGIN@2";
+"Data::DPath::Filters::BEGIN@15" -> "constant::BEGIN@4";
+"Data::DPath::Filters::BEGIN@15" -> "constant::BEGIN@6";
+"Data::DPath::Filters::BEGIN@15" -> "constant::import";
+"Data::DPath::Path::BEGIN@27" -> "constant::import";
+"Data::DPath::Context::BEGIN@64" -> "constant::import";
+"constant::BEGIN@29" -> "strict::unimport";
+"constant::BEGIN@52" -> "strict::unimport";
+"constant::BEGIN@114" -> "strict::unimport";
+"constant::import" -> "constant::CORE:regcomp";
+"Data::DPath::Filters::BEGIN@15" -> "constant::CORE:regcomp";
+"constant::import" -> "Internals::SvREADONLY";
+"constant::import" -> "utf8::is_utf8";
+"constant::BEGIN@6" -> "vars::import";
+"Data::DPath::Filters::BEGIN@15" -> "constant::BEGIN@52";
+"Data::DPath::Filters::BEGIN@15" -> "constant::CORE:qr";
+"Data::DPath::Filters::BEGIN@15" -> "constant::BEGIN@3";
+"Data::DPath::Filters::BEGIN@15" -> "constant::BEGIN@25";
+"constant::import" -> "constant::CORE:match";
+"Data::DPath::Filters::BEGIN@15" -> "constant::BEGIN@114";
+"constant::BEGIN@3" -> "strict::import";
+"constant::BEGIN@4" -> "warnings::register::import";
+}

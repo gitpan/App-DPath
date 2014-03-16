@@ -12,10 +12,6 @@ use Config::General;
 use Config::INI::Serializer;
 use Data::Structure::Util 'unbless';
 
-BEGIN {
-        use_ok( 'App::DPath' );
-}
-
 sub check {
         my ($intype, $outtype, $path, $expected, $just_diag) = @_;
 
@@ -54,6 +50,7 @@ sub check {
         }
 }
 
+check (qw(tap json));
 check (qw(yaml json));
 check (qw(yaml dumper));
 check (qw(json dumper));
@@ -78,7 +75,7 @@ check (qw(cfggeneral yaml), '//home', [ "/usr/home/max" ]);
 check (qw(cfggeneral yaml), '//mono//bl', [ 2 ]);
 check (qw(cfggeneral yaml), '//log', [ "/usr/log/logfile" ]);
 
-diag qq{Ignore "unsupported innermost nesting" errors, that's what we test...};
+diag qq{Ignore "unsupported innermost nesting" errors, that is what we test...};
 
 my $program;
 my $infile;

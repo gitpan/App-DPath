@@ -1,0 +1,17 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+}
+subgraph cluster_Fcntl {
+	label="Fcntl";
+	"Fcntl::BEGIN@58";
+}
+subgraph cluster_POSIX {
+	label="POSIX";
+	"POSIX::BEGIN@13";
+}
+"POSIX::BEGIN@13" -> "Fcntl::BEGIN@58";
+"Fcntl::BEGIN@58" -> "strict::import";
+}

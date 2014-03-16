@@ -1,0 +1,45 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Config {
+	label="Config";
+	"Config::BEGIN@11";
+	"Config::TIEHASH";
+	"Config::BEGIN@45";
+	"Config::BEGIN@10";
+	"Config::BEGIN@9";
+	"Config::import";
+	"Config::FETCH";
+}
+subgraph cluster_DynaLoader {
+	label="DynaLoader";
+	"DynaLoader::BEGIN@22";
+}
+subgraph cluster_List_MoreUtils {
+	label="List::MoreUtils";
+	"List::MoreUtils::BEGIN@6";
+}
+subgraph cluster_warnings {
+	label="warnings";
+	"warnings::import";
+}
+subgraph cluster_vars {
+	label="vars";
+	"vars::import";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+	"strict::unimport";
+}
+"DynaLoader::BEGIN@22" -> "Config::BEGIN@10";
+"Config::BEGIN@45" -> "strict::unimport";
+"Config::BEGIN@10" -> "warnings::import";
+"DynaLoader::BEGIN@22" -> "Config::BEGIN@11";
+"DynaLoader::BEGIN@22" -> "Config::BEGIN@45";
+"DynaLoader::BEGIN@22" -> "Config::TIEHASH";
+"DynaLoader::BEGIN@22" -> "Config::import";
+"DynaLoader::BEGIN@22" -> "Config::BEGIN@9";
+"Config::BEGIN@11" -> "vars::import";
+"List::MoreUtils::BEGIN@6" -> "Config::FETCH";
+"Config::BEGIN@9" -> "strict::import";
+}

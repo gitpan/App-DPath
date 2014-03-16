@@ -11,12 +11,7 @@ use ExtUtils::MakeMaker 6.30;
 my %WriteMakefileArgs = (
   "ABSTRACT" => "Cmdline tool around Data::DPath",
   "AUTHOR" => "Steffen Schwigon <ss5\@renormalist.net>",
-  "BUILD_REQUIRES" => {
-    "Data::Structure::Util" => 0,
-    "Test::Deep" => 0,
-    "Test::More" => "0.88",
-    "YAML::Syck" => 0
-  },
+  "BUILD_REQUIRES" => {},
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => "6.30"
   },
@@ -27,7 +22,7 @@ my %WriteMakefileArgs = (
   "LICENSE" => "perl",
   "NAME" => "App::DPath",
   "PREREQ_PM" => {
-    "App::Cmd::Setup" => 0,
+    "App::Rad" => 0,
     "Config::General" => 0,
     "Config::INI::Serializer" => 0,
     "Data::DPath" => 0,
@@ -35,17 +30,37 @@ my %WriteMakefileArgs = (
     "JSON" => 0,
     "Scalar::Util" => 0,
     "TAP::DOM" => 0,
+    "TAP::Parser" => 0,
     "XML::Simple" => 0,
     "YAML::Any" => 0,
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.04",
+  "TEST_REQUIRES" => {
+    "Data::Structure::Util" => 0,
+    "Test::Deep" => 0,
+    "Test::More" => "0.88",
+    "YAML::Syck" => 0
+  },
+  "VERSION" => "0.05",
   "test" => {
     "TESTS" => "t/*.t"
   }
 );
 
+
+unless ( eval { ExtUtils::MakeMaker->VERSION(6.63_03) } ) {
+  my $tr = delete $WriteMakefileArgs{TEST_REQUIRES};
+  my $br = $WriteMakefileArgs{BUILD_REQUIRES};
+  for my $mod ( keys %$tr ) {
+    if ( exists $br->{$mod} ) {
+      $br->{$mod} = $tr->{$mod} if $tr->{$mod} > $br->{$mod};
+    }
+    else {
+      $br->{$mod} = $tr->{$mod};
+    }
+  }
+}
 
 unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
   my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};

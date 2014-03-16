@@ -1,0 +1,28 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Safe {
+	label="Safe";
+	"Safe::CORE:regcomp";
+}
+subgraph cluster_utf8 {
+	label="utf8";
+	"utf8::BEGIN@147";
+	"utf8::AUTOLOAD";
+	"utf8::BEGIN@2";
+	"utf8::BEGIN@460";
+	"utf8::BEGIN@3";
+	"utf8::BEGIN@399";
+	"utf8::BEGIN@123";
+	"utf8::BEGIN@117";
+	"utf8::BEGIN@135";
+}
+"utf8::AUTOLOAD" -> "utf8::BEGIN@123";
+"utf8::AUTOLOAD" -> "utf8::BEGIN@460";
+"utf8::AUTOLOAD" -> "utf8::BEGIN@147";
+"Safe::CORE:regcomp" -> "utf8::AUTOLOAD";
+"utf8::AUTOLOAD" -> "utf8::BEGIN@2";
+"utf8::AUTOLOAD" -> "utf8::BEGIN@399";
+"utf8::AUTOLOAD" -> "utf8::BEGIN@117";
+"utf8::AUTOLOAD" -> "utf8::BEGIN@135";
+"utf8::AUTOLOAD" -> "utf8::BEGIN@3";
+}

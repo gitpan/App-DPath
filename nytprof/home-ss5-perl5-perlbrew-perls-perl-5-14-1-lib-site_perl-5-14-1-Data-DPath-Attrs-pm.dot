@@ -1,0 +1,33 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Data_DPath_Context {
+	label="Data::DPath::Context";
+	"Data::DPath::Context::BEGIN@1.3";
+}
+subgraph cluster_warnings {
+	label="warnings";
+	"warnings::import";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+}
+subgraph cluster_Data_DPath_Attrs {
+	label="Data::DPath::Attrs";
+	"Data::DPath::Attrs::BEGIN@2";
+	"Data::DPath::Attrs::BEGIN@11";
+	"Data::DPath::Attrs::BEGIN@14";
+	"Data::DPath::Attrs::BEGIN@10";
+}
+subgraph cluster_Class_XSAccessor {
+	label="Class::XSAccessor";
+	"Class::XSAccessor::import";
+}
+"Data::DPath::Context::BEGIN@1.3" -> "Data::DPath::Attrs::BEGIN@11";
+"Data::DPath::Context::BEGIN@1.3" -> "Data::DPath::Attrs::BEGIN@14";
+"Data::DPath::Context::BEGIN@1.3" -> "Data::DPath::Attrs::BEGIN@10";
+"Data::DPath::Attrs::BEGIN@11" -> "warnings::import";
+"Data::DPath::Context::BEGIN@1.3" -> "Data::DPath::Attrs::BEGIN@2";
+"Data::DPath::Attrs::BEGIN@14" -> "Class::XSAccessor::import";
+"Data::DPath::Attrs::BEGIN@10" -> "strict::import";
+}

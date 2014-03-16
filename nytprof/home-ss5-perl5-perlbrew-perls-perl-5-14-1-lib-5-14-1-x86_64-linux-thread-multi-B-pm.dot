@@ -1,0 +1,28 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Safe {
+	label="Safe";
+	"Safe::BEGIN@34";
+}
+subgraph cluster_B {
+	label="B";
+	"B::BEGIN@9";
+	"B::BEGIN@17";
+	"B::BEGIN@254";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+	"strict::unimport";
+}
+subgraph cluster_XSLoader {
+	label="XSLoader";
+	"XSLoader::load";
+}
+"Safe::BEGIN@34" -> "B::BEGIN@17";
+"B::BEGIN@254" -> "strict::unimport";
+"Safe::BEGIN@34" -> "B::BEGIN@254";
+"Safe::BEGIN@34" -> "B::BEGIN@9";
+"B::BEGIN@17" -> "XSLoader::load";
+"B::BEGIN@9" -> "strict::import";
+}

@@ -1,0 +1,23 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Data_DPath_Context {
+	label="Data::DPath::Context";
+	"Data::DPath::Context::BEGIN@17";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+}
+subgraph cluster_Scalar_Util {
+	label="Scalar::Util";
+	"Scalar::Util::BEGIN@9";
+	"Scalar::Util::reftype";
+}
+subgraph cluster_Sub_Install {
+	label="Sub::Install";
+	"Sub::Install::_CODELIKE";
+}
+"Sub::Install::_CODELIKE" -> "Scalar::Util::reftype";
+"Data::DPath::Context::BEGIN@17" -> "Scalar::Util::BEGIN@9";
+"Scalar::Util::BEGIN@9" -> "strict::import";
+}

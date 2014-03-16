@@ -1,0 +1,61 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Test_Deep {
+	label="Test::Deep";
+	"Test::Deep::descend";
+}
+subgraph cluster_warnings {
+	label="warnings";
+	"warnings::import";
+}
+subgraph cluster_base {
+	label="base";
+	"base::import";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+}
+subgraph cluster_Test_Deep_Hash {
+	label="Test::Deep::Hash";
+	"Test::Deep::Hash::hash_elements";
+	"Test::Deep::Hash::BEGIN@2.24";
+	"Test::Deep::Hash::BEGIN@1.23";
+}
+subgraph cluster_Test_Deep_Cmp {
+	label="Test::Deep::Cmp";
+	"Test::Deep::Cmp::data";
+	"Test::Deep::Cmp::import";
+	"Test::Deep::Cmp::new";
+}
+subgraph cluster_Test_Deep_HashElements {
+	label="Test::Deep::HashElements";
+	"Test::Deep::HashElements::descend";
+	"Test::Deep::HashElements::BEGIN@6";
+	"Test::Deep::HashElements::getMaster";
+	"Test::Deep::HashElements::init";
+}
+subgraph cluster_Test_Deep_SubHashElements {
+	label="Test::Deep::SubHashElements";
+	"Test::Deep::SubHashElements::BEGIN@83";
+}
+subgraph cluster_Test_Deep_SuperHashElements {
+	label="Test::Deep::SuperHashElements";
+	"Test::Deep::SuperHashElements::BEGIN@70";
+}
+"Test::Deep::HashElements::descend" -> "Test::Deep::HashElements::getMaster";
+"Test::Deep::HashElements::descend" -> "Test::Deep::Cmp::data";
+"Test::Deep::descend" -> "Test::Deep::HashElements::descend";
+"Test::Deep::SubHashElements::BEGIN@83" -> "base::import";
+"Test::Deep::SuperHashElements::BEGIN@70" -> "base::import";
+"Test::Deep::HashElements::BEGIN@6" -> "Test::Deep::Cmp::import";
+"Test::Deep::Cmp::new" -> "Test::Deep::HashElements::init";
+"Test::Deep::Hash::hash_elements" -> "Test::Deep::SubHashElements::BEGIN@83";
+"Test::Deep::Hash::BEGIN@2.24" -> "warnings::import";
+"Test::Deep::HashElements::descend" -> "Test::Deep::descend";
+"Test::Deep::Hash::hash_elements" -> "Test::Deep::Hash::BEGIN@2.24";
+"Test::Deep::Hash::hash_elements" -> "Test::Deep::HashElements::BEGIN@6";
+"Test::Deep::Hash::hash_elements" -> "Test::Deep::SuperHashElements::BEGIN@70";
+"Test::Deep::Hash::hash_elements" -> "Test::Deep::Hash::BEGIN@1.23";
+"Test::Deep::Hash::BEGIN@1.23" -> "strict::import";
+}

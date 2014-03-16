@@ -1,0 +1,91 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Class_XSAccessor_Array {
+	label="Class::XSAccessor::Array";
+	"Class::XSAccessor::Array::BEGIN@6";
+}
+subgraph cluster_warnings {
+	label="warnings";
+	"warnings::unimport";
+	"warnings::import";
+}
+subgraph cluster_main {
+	label="main";
+	"main::RUNTIME";
+}
+subgraph cluster_Data_DPath_Path {
+	label="Data::DPath::Path";
+	"Data::DPath::Path::BEGIN@20";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+}
+subgraph cluster_Class_XSAccessor_Heavy {
+	label="Class::XSAccessor::Heavy";
+	"Class::XSAccessor::Heavy::BEGIN@27";
+	"Class::XSAccessor::Heavy::BEGIN@7";
+	"Class::XSAccessor::Heavy::BEGIN@5";
+	"Class::XSAccessor::Heavy::check_sub_existence";
+	"Class::XSAccessor::Heavy::BEGIN@6";
+	"Class::XSAccessor::Heavy::BEGIN@30";
+	"Class::XSAccessor::Heavy::BEGIN@4";
+}
+subgraph cluster_Data_DPath_Attrs {
+	label="Data::DPath::Attrs";
+	"Data::DPath::Attrs::BEGIN@14";
+}
+subgraph cluster_Data_DPath_Point {
+	label="Data::DPath::Point";
+	"Data::DPath::Point::BEGIN@14";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_Class_XSAccessor {
+	label="Class::XSAccessor";
+	"Class::XSAccessor::BEGIN@3";
+	"Class::XSAccessor::_generate_method";
+	"Class::XSAccessor::import";
+	"Class::XSAccessor::BEGIN@4";
+	"Class::XSAccessor::BEGIN@7";
+	"Class::XSAccessor::BEGIN@6";
+	"Class::XSAccessor::BEGIN@5";
+	"Class::XSAccessor::_make_hash";
+	"Class::XSAccessor::END";
+	"Class::XSAccessor::BEGIN@80";
+	"Class::XSAccessor::BEGIN@2";
+	"Class::XSAccessor::newxs_constructor";
+	"Class::XSAccessor::newxs_accessor";
+	"Class::XSAccessor::CORE:match";
+}
+"Class::XSAccessor::BEGIN@6" -> "Class::XSAccessor::Heavy::BEGIN@5";
+"Class::XSAccessor::Array::BEGIN@6" -> "Class::XSAccessor::BEGIN@4";
+"Class::XSAccessor::BEGIN@6" -> "Class::XSAccessor::Heavy::BEGIN@27";
+"Class::XSAccessor::Array::BEGIN@6" -> "Class::XSAccessor::BEGIN@2";
+"Class::XSAccessor::Array::BEGIN@6" -> "Class::XSAccessor::BEGIN@3";
+"Class::XSAccessor::BEGIN@80" -> "warnings::unimport";
+"Class::XSAccessor::BEGIN@5" -> "Exporter::import";
+"Class::XSAccessor::BEGIN@4" -> "warnings::import";
+"Class::XSAccessor::BEGIN@6" -> "Class::XSAccessor::Heavy::BEGIN@7";
+"Class::XSAccessor::import" -> "Class::XSAccessor::_generate_method";
+"Class::XSAccessor::_generate_method" -> "Class::XSAccessor::newxs_accessor";
+"Class::XSAccessor::_generate_method" -> "Class::XSAccessor::CORE:match";
+"Class::XSAccessor::Array::BEGIN@6" -> "Class::XSAccessor::BEGIN@6";
+"main::RUNTIME" -> "Class::XSAccessor::END";
+"Data::DPath::Attrs::BEGIN@14" -> "Class::XSAccessor::import";
+"Data::DPath::Path::BEGIN@20" -> "Class::XSAccessor::import";
+"Class::XSAccessor::Array::BEGIN@6" -> "Class::XSAccessor::import";
+"Data::DPath::Point::BEGIN@14" -> "Class::XSAccessor::import";
+"Class::XSAccessor::BEGIN@6" -> "Class::XSAccessor::Heavy::BEGIN@6";
+"Class::XSAccessor::Array::BEGIN@6" -> "Class::XSAccessor::BEGIN@7";
+"Class::XSAccessor::import" -> "Class::XSAccessor::_make_hash";
+"Class::XSAccessor::Array::BEGIN@6" -> "Class::XSAccessor::BEGIN@80";
+"Class::XSAccessor::_generate_method" -> "Class::XSAccessor::newxs_constructor";
+"Class::XSAccessor::BEGIN@3" -> "strict::import";
+"Class::XSAccessor::Array::BEGIN@6" -> "Class::XSAccessor::BEGIN@5";
+"Class::XSAccessor::_generate_method" -> "Class::XSAccessor::Heavy::check_sub_existence";
+"Class::XSAccessor::BEGIN@6" -> "Class::XSAccessor::Heavy::BEGIN@4";
+"Class::XSAccessor::BEGIN@6" -> "Class::XSAccessor::Heavy::BEGIN@30";
+}

@@ -1,0 +1,74 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_vars {
+	label="vars";
+	"vars::import";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+	"strict::unimport";
+}
+subgraph cluster_SelfLoader {
+	label="SelfLoader";
+	"SelfLoader::BEGIN@158";
+	"SelfLoader::BEGIN@1.6";
+	"SelfLoader::BEGIN@2";
+	"SelfLoader::BEGIN@1";
+	"SelfLoader::BEGIN@73";
+	"SelfLoader::BEGIN@91";
+	"SelfLoader::BEGIN@10";
+	"SelfLoader::BEGIN@3";
+	"SelfLoader::BEGIN@9";
+	"SelfLoader::BEGIN@4";
+	"SelfLoader::CORE:qr";
+	"SelfLoader::BEGIN@42";
+	"SelfLoader::BEGIN@93";
+}
+subgraph cluster_IO_Handle {
+	label="IO::Handle";
+	"IO::Handle::BEGIN@260";
+	"IO::Handle::BEGIN@264";
+	"IO::Handle::BEGIN@261";
+	"IO::Handle::BEGIN@266";
+	"IO::Handle::BEGIN@263";
+	"IO::Handle::BEGIN@265";
+	"IO::Handle::BEGIN@624";
+}
+subgraph cluster_Text_Balanced {
+	label="Text::Balanced";
+	"Text::Balanced::BEGIN@9";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+"SelfLoader::BEGIN@10" -> "SelfLoader::BEGIN@1";
+"SelfLoader::BEGIN@4" -> "IO::Handle::BEGIN@266";
+"Text::Balanced::BEGIN@9" -> "SelfLoader::BEGIN@3";
+"SelfLoader::BEGIN@42" -> "Exporter::import";
+"SelfLoader::BEGIN@4" -> "Exporter::import";
+"Text::Balanced::BEGIN@9" -> "SelfLoader::BEGIN@42";
+"Text::Balanced::BEGIN@9" -> "SelfLoader::BEGIN@158";
+"SelfLoader::BEGIN@158" -> "strict::unimport";
+"SelfLoader::BEGIN@91" -> "strict::unimport";
+"SelfLoader::BEGIN@73" -> "strict::unimport";
+"Text::Balanced::BEGIN@9" -> "SelfLoader::BEGIN@91";
+"Text::Balanced::BEGIN@9" -> "SelfLoader::BEGIN@4";
+"Text::Balanced::BEGIN@9" -> "SelfLoader::BEGIN@93";
+"SelfLoader::BEGIN@4" -> "IO::Handle::BEGIN@263";
+"SelfLoader::BEGIN@4" -> "IO::Handle::BEGIN@624";
+"SelfLoader::BEGIN@4" -> "IO::Handle::BEGIN@260";
+"SelfLoader::BEGIN@4" -> "IO::Handle::BEGIN@261";
+"SelfLoader::BEGIN@10" -> "SelfLoader::CORE:qr";
+"SelfLoader::BEGIN@9" -> "vars::import";
+"SelfLoader::BEGIN@4" -> "IO::Handle::BEGIN@264";
+"SelfLoader::BEGIN@10" -> "SelfLoader::BEGIN@1.6";
+"Text::Balanced::BEGIN@9" -> "SelfLoader::BEGIN@2";
+"Text::Balanced::BEGIN@9" -> "SelfLoader::BEGIN@9";
+"Text::Balanced::BEGIN@9" -> "SelfLoader::BEGIN@73";
+"Text::Balanced::BEGIN@9" -> "SelfLoader::BEGIN@10";
+"SelfLoader::BEGIN@3" -> "strict::import";
+"SelfLoader::BEGIN@93" -> "strict::import";
+"SelfLoader::BEGIN@4" -> "IO::Handle::BEGIN@265";
+}

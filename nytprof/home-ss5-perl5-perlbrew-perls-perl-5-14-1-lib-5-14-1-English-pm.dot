@@ -1,0 +1,53 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Config {
+	label="Config";
+	"Config::FETCH";
+}
+subgraph cluster_Config_General {
+	label="Config::General";
+	"Config::General::BEGIN@17";
+}
+subgraph cluster_Errno {
+	label="Errno";
+	"Errno::BEGIN@9";
+	"Errno::BEGIN@8";
+	"Errno::TIEHASH";
+	"Errno::BEGIN@21";
+}
+subgraph cluster_warnings {
+	label="warnings";
+	"warnings::unimport";
+}
+subgraph cluster_English {
+	label="English";
+	"English::BEGIN@1";
+	"English::import";
+	"English::BEGIN@187";
+	"English::CORE:match";
+	"English::BEGIN@148";
+	"English::BEGIN@47";
+}
+subgraph cluster_XSLoader {
+	label="XSLoader";
+	"XSLoader::load";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+"Config::General::BEGIN@17" -> "English::BEGIN@187";
+"English::BEGIN@187" -> "Errno::BEGIN@8";
+"English::BEGIN@47" -> "warnings::unimport";
+"English::import" -> "Exporter::import";
+"English::BEGIN@187" -> "Errno::BEGIN@9";
+"English::BEGIN@148" -> "English::BEGIN@1";
+"Config::General::BEGIN@17" -> "English::BEGIN@148";
+"English::BEGIN@187" -> "Errno::TIEHASH";
+"Config::General::BEGIN@17" -> "English::BEGIN@47";
+"English::BEGIN@148" -> "XSLoader::load";
+"English::BEGIN@187" -> "Config::FETCH";
+"Config::General::BEGIN@17" -> "English::import";
+"English::BEGIN@187" -> "Errno::BEGIN@21";
+"English::import" -> "English::CORE:match";
+}

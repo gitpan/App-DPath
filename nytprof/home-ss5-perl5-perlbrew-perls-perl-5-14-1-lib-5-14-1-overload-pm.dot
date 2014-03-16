@@ -1,0 +1,39 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Text_Balanced_ErrorMsg {
+	label="Text::Balanced::ErrorMsg";
+	"Text::Balanced::ErrorMsg::BEGIN@1021";
+}
+subgraph cluster_Devel_StackTrace {
+	label="Devel::StackTrace";
+	"Devel::StackTrace::BEGIN@16";
+}
+subgraph cluster_overload {
+	label="overload";
+	"overload::BEGIN@147";
+	"overload::OVERLOAD";
+	"overload::import";
+	"overload::CORE:match";
+}
+subgraph cluster_Data_DPath_Path {
+	label="Data::DPath::Path";
+	"Data::DPath::Path::BEGIN@13";
+	"Data::DPath::Path::BEGIN@1.7";
+}
+subgraph cluster_Exception_Class_Base {
+	label="Exception::Class::Base";
+	"Exception::Class::Base::BEGIN@34";
+}
+subgraph cluster_warnings_register {
+	label="warnings::register";
+	"warnings::register::import";
+}
+"overload::import" -> "overload::OVERLOAD";
+"Data::DPath::Path::BEGIN@1.7" -> "overload::import";
+"Devel::StackTrace::BEGIN@16" -> "overload::import";
+"Text::Balanced::ErrorMsg::BEGIN@1021" -> "overload::import";
+"Exception::Class::Base::BEGIN@34" -> "overload::import";
+"Data::DPath::Path::BEGIN@13" -> "overload::BEGIN@147";
+"overload::OVERLOAD" -> "overload::CORE:match";
+"overload::BEGIN@147" -> "warnings::register::import";
+}

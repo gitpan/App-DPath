@@ -1,0 +1,127 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Iterator {
+	label="Iterator";
+	"Iterator::BEGIN@22";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+	"strict::unimport";
+}
+subgraph cluster_Iterator_X_Exhausted {
+	label="Iterator::X::Exhausted";
+	"Iterator::X::Exhausted::BEGIN@3";
+}
+subgraph cluster_Iterator_X_OptionError {
+	label="Iterator::X::OptionError";
+	"Iterator::X::OptionError::BEGIN@3";
+}
+subgraph cluster_Iterator_X {
+	label="Iterator::X";
+	"Iterator::X::BEGIN@3";
+}
+subgraph cluster_Iterator_X_IO_Error {
+	label="Iterator::X::IO_Error";
+	"Iterator::X::IO_Error::BEGIN@3";
+}
+subgraph cluster_UNIVERSAL {
+	label="UNIVERSAL";
+	"UNIVERSAL::isa";
+}
+subgraph cluster_Iterator_X_Parameter_Error {
+	label="Iterator::X::Parameter_Error";
+	"Iterator::X::Parameter_Error::BEGIN@3";
+}
+subgraph cluster_Iterator_X_User_Code_Error {
+	label="Iterator::X::User_Code_Error";
+	"Iterator::X::User_Code_Error::BEGIN@3";
+}
+subgraph cluster_Iterator_X_Internal_Error {
+	label="Iterator::X::Internal_Error";
+	"Iterator::X::Internal_Error::BEGIN@3";
+}
+subgraph cluster_Iterator_X_Am_Now_Exhausted {
+	label="Iterator::X::Am_Now_Exhausted";
+	"Iterator::X::Am_Now_Exhausted::BEGIN@3";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_Exception_Class_Base {
+	label="Exception::Class::Base";
+	"Exception::Class::Base::BEGIN@37";
+	"Exception::Class::Base::BEGIN@6";
+	"Exception::Class::Base::BEGIN@43";
+	"Exception::Class::Base::BEGIN@34";
+	"Exception::Class::Base::BEGIN@63";
+	"Exception::Class::Base::BEGIN@13";
+	"Exception::Class::Base::BEGIN@9";
+	"Exception::Class::Base::BEGIN@10";
+	"Exception::Class::Base::BEGIN@15";
+	"Exception::Class::Base::BEGIN@2";
+	"Exception::Class::Base::BEGIN@7";
+	"Exception::Class::Base::BEGIN@11";
+}
+subgraph cluster_Exception_Class {
+	label="Exception::Class";
+	"Exception::Class::BEGIN@10";
+	"Exception::Class::BEGIN@176";
+	"Exception::Class::CORE:substcont";
+	"Exception::Class::BEGIN@14";
+	"Exception::Class::BEGIN@8";
+	"Exception::Class::_make_subclass";
+	"Exception::Class::BEGIN@2";
+	"Exception::Class::BEGIN@46";
+	"Exception::Class::import";
+	"Exception::Class::BEGIN@79";
+	"Exception::Class::BEGIN@168";
+	"Exception::Class::BEGIN@11";
+	"Exception::Class::CORE:sort";
+	"Exception::Class::BEGIN@6";
+	"Exception::Class::CORE:subst";
+}
+"Exception::Class::BEGIN@10" -> "Exception::Class::Base::BEGIN@37";
+"Exception::Class::BEGIN@10" -> "Exception::Class::Base::BEGIN@10";
+"Exception::Class::BEGIN@10" -> "Exception::Class::Base::BEGIN@2";
+"Exception::Class::BEGIN@10" -> "Exception::Class::Base::BEGIN@7";
+"Iterator::BEGIN@22" -> "Exception::Class::BEGIN@10";
+"Exception::Class::_make_subclass" -> "Iterator::X::BEGIN@3";
+"Iterator::BEGIN@22" -> "Exception::Class::BEGIN@79";
+"Exception::Class::BEGIN@11" -> "Exporter::import";
+"Exception::Class::BEGIN@10" -> "Exception::Class::Base::BEGIN@9";
+"Iterator::BEGIN@22" -> "Exception::Class::BEGIN@14";
+"Exception::Class::BEGIN@176" -> "strict::unimport";
+"Exception::Class::BEGIN@79" -> "strict::unimport";
+"Exception::Class::BEGIN@46" -> "strict::unimport";
+"Exception::Class::BEGIN@168" -> "strict::unimport";
+"Exception::Class::_make_subclass" -> "Exception::Class::CORE:substcont";
+"Iterator::BEGIN@22" -> "Exception::Class::BEGIN@2";
+"Iterator::BEGIN@22" -> "Exception::Class::import";
+"Exception::Class::BEGIN@10" -> "Exception::Class::Base::BEGIN@63";
+"Iterator::BEGIN@22" -> "Exception::Class::BEGIN@168";
+"Exception::Class::_make_subclass" -> "UNIVERSAL::isa";
+"Exception::Class::_make_subclass" -> "Iterator::X::Am_Now_Exhausted::BEGIN@3";
+"Iterator::BEGIN@22" -> "Exception::Class::BEGIN@6";
+"Exception::Class::BEGIN@10" -> "Exception::Class::Base::BEGIN@11";
+"Exception::Class::_make_subclass" -> "Iterator::X::OptionError::BEGIN@3";
+"Exception::Class::_make_subclass" -> "Iterator::X::User_Code_Error::BEGIN@3";
+"Exception::Class::import" -> "Exception::Class::_make_subclass";
+"Exception::Class::BEGIN@10" -> "Exception::Class::Base::BEGIN@34";
+"Exception::Class::import" -> "Exception::Class::CORE:sort";
+"Exception::Class::_make_subclass" -> "Exception::Class::CORE:subst";
+"Iterator::BEGIN@22" -> "Exception::Class::BEGIN@176";
+"Exception::Class::BEGIN@10" -> "Exception::Class::Base::BEGIN@13";
+"Exception::Class::_make_subclass" -> "Iterator::X::IO_Error::BEGIN@3";
+"Exception::Class::_make_subclass" -> "Iterator::X::Parameter_Error::BEGIN@3";
+"Exception::Class::BEGIN@10" -> "Exception::Class::Base::BEGIN@6";
+"Iterator::BEGIN@22" -> "Exception::Class::BEGIN@8";
+"Exception::Class::_make_subclass" -> "Iterator::X::Exhausted::BEGIN@3";
+"Iterator::BEGIN@22" -> "Exception::Class::BEGIN@46";
+"Exception::Class::_make_subclass" -> "Iterator::X::Internal_Error::BEGIN@3";
+"Iterator::BEGIN@22" -> "Exception::Class::BEGIN@11";
+"Exception::Class::BEGIN@10" -> "Exception::Class::Base::BEGIN@15";
+"Exception::Class::BEGIN@10" -> "Exception::Class::Base::BEGIN@43";
+"Exception::Class::BEGIN@8" -> "strict::import";
+}

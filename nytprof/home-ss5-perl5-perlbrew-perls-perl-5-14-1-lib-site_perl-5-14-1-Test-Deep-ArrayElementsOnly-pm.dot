@@ -1,0 +1,40 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Test_Deep {
+	label="Test::Deep";
+	"Test::Deep::descend";
+	"Test::Deep::BEGIN@1.19";
+	"Test::Deep::BEGIN@2.20";
+	"Test::Deep::__ANON__[Test/Deep.pm:80]";
+}
+subgraph cluster_warnings {
+	label="warnings";
+	"warnings::import";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+}
+subgraph cluster_Test_Deep_ArrayElementsOnly {
+	label="Test::Deep::ArrayElementsOnly";
+	"Test::Deep::ArrayElementsOnly::init";
+	"Test::Deep::ArrayElementsOnly::descend";
+	"Test::Deep::ArrayElementsOnly::BEGIN@6";
+}
+subgraph cluster_Test_Deep_Cmp {
+	label="Test::Deep::Cmp";
+	"Test::Deep::Cmp::data";
+	"Test::Deep::Cmp::import";
+	"Test::Deep::Cmp::new";
+}
+"Test::Deep::ArrayElementsOnly::descend" -> "Test::Deep::Cmp::data";
+"Test::Deep::descend" -> "Test::Deep::ArrayElementsOnly::descend";
+"Test::Deep::ArrayElementsOnly::BEGIN@6" -> "Test::Deep::Cmp::import";
+"Test::Deep::__ANON__[Test/Deep.pm:80]" -> "Test::Deep::ArrayElementsOnly::BEGIN@6";
+"Test::Deep::BEGIN@2.20" -> "warnings::import";
+"Test::Deep::Cmp::new" -> "Test::Deep::ArrayElementsOnly::init";
+"Test::Deep::ArrayElementsOnly::descend" -> "Test::Deep::descend";
+"Test::Deep::__ANON__[Test/Deep.pm:80]" -> "Test::Deep::BEGIN@2.20";
+"Test::Deep::__ANON__[Test/Deep.pm:80]" -> "Test::Deep::BEGIN@1.19";
+"Test::Deep::BEGIN@1.19" -> "strict::import";
+}

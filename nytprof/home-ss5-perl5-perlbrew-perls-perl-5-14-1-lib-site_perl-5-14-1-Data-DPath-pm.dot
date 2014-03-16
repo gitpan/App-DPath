@@ -1,0 +1,87 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Sub_Exporter {
+	label="Sub::Exporter";
+	"Sub::Exporter::default_generator";
+	"Sub::Exporter::BEGIN@7";
+	"Sub::Exporter::__ANON__[Sub/Exporter.pm:756]";
+	"Sub::Exporter::BEGIN@8";
+	"Sub::Exporter::BEGIN@6";
+	"Sub::Exporter::BEGIN@636";
+	"Sub::Exporter::BEGIN@9";
+	"Sub::Exporter::setup_exporter";
+}
+subgraph cluster_warnings {
+	label="warnings";
+	"warnings::import";
+}
+subgraph cluster_main {
+	label="main";
+	"main::BEGIN@10";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+}
+subgraph cluster_Data_DPath_Path {
+	label="Data::DPath::Path";
+	"Data::DPath::Path::BEGIN@15";
+	"Data::DPath::Path::BEGIN@10";
+	"Data::DPath::Path::BEGIN@11";
+	"Data::DPath::Path::BEGIN@14";
+	"Data::DPath::Path::BEGIN@17";
+	"Data::DPath::Path::BEGIN@20";
+	"Data::DPath::Path::BEGIN@27";
+	"Data::DPath::Path::BEGIN@1.7";
+	"Data::DPath::Path::BEGIN@2";
+	"Data::DPath::Path::BEGIN@13";
+	"Data::DPath::Path::BEGIN@121";
+	"Data::DPath::Path::BEGIN@16";
+}
+subgraph cluster_Data_DPath {
+	label="Data::DPath";
+	"Data::DPath::BEGIN@3";
+	"Data::DPath::BEGIN@10";
+	"Data::DPath::BEGIN@18";
+	"Data::DPath::BEGIN@11";
+	"Data::DPath::build_dpath";
+	"Data::DPath::BEGIN@2";
+	"Data::DPath::BEGIN@1";
+	"Data::DPath::BEGIN@12";
+	"Data::DPath::BEGIN@19";
+	"Data::DPath::BEGIN@2.8";
+	"Data::DPath::BEGIN@48";
+}
+"Data::DPath::BEGIN@18" -> "Data::DPath::Path::BEGIN@20";
+"Data::DPath::BEGIN@48" -> "Sub::Exporter::__ANON__[Sub/Exporter.pm:756]";
+"main::BEGIN@10" -> "Data::DPath::BEGIN@19";
+"Data::DPath::BEGIN@18" -> "Data::DPath::Path::BEGIN@121";
+"main::BEGIN@10" -> "Data::DPath::BEGIN@18";
+"main::BEGIN@10" -> "Data::DPath::BEGIN@10";
+"main::BEGIN@10" -> "Data::DPath::BEGIN@11";
+"Data::DPath::BEGIN@18" -> "Data::DPath::Path::BEGIN@2";
+"main::BEGIN@10" -> "Data::DPath::BEGIN@2";
+"Data::DPath::BEGIN@48" -> "Sub::Exporter::setup_exporter";
+"main::BEGIN@10" -> "Data::DPath::BEGIN@12";
+"Data::DPath::BEGIN@18" -> "Data::DPath::Path::BEGIN@16";
+"Data::DPath::BEGIN@48" -> "Sub::Exporter::BEGIN@6";
+"Data::DPath::BEGIN@48" -> "Sub::Exporter::BEGIN@9";
+"Data::DPath::BEGIN@18" -> "Data::DPath::Path::BEGIN@27";
+"Sub::Exporter::default_generator" -> "Data::DPath::build_dpath";
+"Data::DPath::BEGIN@12" -> "warnings::import";
+"Data::DPath::BEGIN@48" -> "Data::DPath::BEGIN@1";
+"main::BEGIN@10" -> "Data::DPath::BEGIN@48";
+"Data::DPath::BEGIN@48" -> "Data::DPath::BEGIN@2.8";
+"Data::DPath::BEGIN@18" -> "Data::DPath::Path::BEGIN@14";
+"Data::DPath::BEGIN@48" -> "Sub::Exporter::BEGIN@8";
+"Data::DPath::BEGIN@18" -> "Data::DPath::Path::BEGIN@15";
+"Data::DPath::BEGIN@48" -> "Sub::Exporter::BEGIN@7";
+"Data::DPath::BEGIN@48" -> "Sub::Exporter::BEGIN@636";
+"Data::DPath::BEGIN@18" -> "Data::DPath::Path::BEGIN@17";
+"Data::DPath::BEGIN@18" -> "Data::DPath::Path::BEGIN@1.7";
+"Data::DPath::BEGIN@18" -> "Data::DPath::Path::BEGIN@13";
+"Data::DPath::BEGIN@48" -> "Data::DPath::BEGIN@3";
+"Data::DPath::BEGIN@18" -> "Data::DPath::Path::BEGIN@10";
+"Data::DPath::BEGIN@18" -> "Data::DPath::Path::BEGIN@11";
+"Data::DPath::BEGIN@11" -> "strict::import";
+}

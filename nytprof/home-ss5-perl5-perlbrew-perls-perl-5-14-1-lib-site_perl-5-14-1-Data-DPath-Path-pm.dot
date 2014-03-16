@@ -1,0 +1,128 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Text_Balanced_ErrorMsg {
+	label="Text::Balanced::ErrorMsg";
+	"Text::Balanced::ErrorMsg::BEGIN@1021";
+}
+subgraph cluster_aliased {
+	label="aliased";
+	"aliased::BEGIN@8";
+	"aliased::import";
+	"aliased::BEGIN@35";
+}
+subgraph cluster_warnings {
+	label="warnings";
+	"warnings::unimport";
+	"warnings::import";
+}
+subgraph cluster_Data_Dumper {
+	label="Data::Dumper";
+	"Data::Dumper::BEGIN@22";
+	"Data::Dumper::BEGIN@16";
+	"Data::Dumper::BEGIN@683";
+	"Data::Dumper::BEGIN@20";
+}
+subgraph cluster_overload {
+	label="overload";
+	"overload::BEGIN@147";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+}
+subgraph cluster_Data_DPath_Path {
+	label="Data::DPath::Path";
+	"Data::DPath::Path::BEGIN@15";
+	"Data::DPath::Path::BEGIN@10";
+	"Data::DPath::Path::BEGIN@11";
+	"Data::DPath::Path::BEGIN@14";
+	"Data::DPath::Path::BEGIN@17";
+	"Data::DPath::Path::BEGIN@20";
+	"Data::DPath::Path::BEGIN@27";
+	"Data::DPath::Path::BEGIN@2";
+	"Data::DPath::Path::BEGIN@13";
+	"Data::DPath::Path::BEGIN@121";
+	"Data::DPath::Path::BEGIN@16";
+}
+subgraph cluster_UNIVERSAL {
+	label="UNIVERSAL";
+	"UNIVERSAL::VERSION";
+}
+subgraph cluster_XSLoader {
+	label="XSLoader";
+	"XSLoader::load";
+}
+subgraph cluster_Text_Balanced {
+	label="Text::Balanced";
+	"Text::Balanced::BEGIN@343";
+	"Text::Balanced::BEGIN@6";
+	"Text::Balanced::BEGIN@9";
+	"Text::Balanced::BEGIN@11";
+	"Text::Balanced::BEGIN@8";
+	"Text::Balanced::BEGIN@12";
+	"Text::Balanced::BEGIN@885";
+	"Text::Balanced::BEGIN@7";
+}
+subgraph cluster_Exporter_Heavy {
+	label="Exporter::Heavy";
+	"Exporter::Heavy::heavy_export_ok_tags";
+}
+subgraph cluster_Data_DPath {
+	label="Data::DPath";
+	"Data::DPath::BEGIN@18";
+}
+subgraph cluster_constant {
+	label="constant";
+	"constant::import";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+	"Exporter::export_ok_tags";
+}
+subgraph cluster_Class_XSAccessor {
+	label="Class::XSAccessor";
+	"Class::XSAccessor::import";
+}
+"Data::DPath::Path::BEGIN@14" -> "aliased::BEGIN@8";
+"Data::DPath::BEGIN@18" -> "Data::DPath::Path::BEGIN@20";
+"Data::DPath::Path::BEGIN@13" -> "Data::Dumper::BEGIN@22";
+"Data::DPath::BEGIN@18" -> "Data::DPath::Path::BEGIN@121";
+"Data::DPath::Path::BEGIN@17" -> "Text::Balanced::BEGIN@7";
+"Data::DPath::BEGIN@18" -> "Data::DPath::Path::BEGIN@2";
+"Data::DPath::Path::BEGIN@121" -> "warnings::unimport";
+"Data::DPath::Path::BEGIN@17" -> "Exporter::import";
+"Data::DPath::Path::BEGIN@13" -> "Exporter::import";
+"Data::DPath::Path::BEGIN@17" -> "Text::Balanced::BEGIN@8";
+"Data::DPath::Path::BEGIN@14" -> "aliased::BEGIN@35";
+"Data::DPath::BEGIN@18" -> "Data::DPath::Path::BEGIN@16";
+"Data::DPath::Path::BEGIN@27" -> "constant::import";
+"Data::DPath::Path::BEGIN@17" -> "Exporter::Heavy::heavy_export_ok_tags";
+"Data::DPath::Path::BEGIN@15" -> "aliased::import";
+"Data::DPath::Path::BEGIN@14" -> "aliased::import";
+"Data::DPath::Path::BEGIN@16" -> "aliased::import";
+"Data::DPath::Path::BEGIN@17" -> "Text::Balanced::BEGIN@343";
+"Data::DPath::BEGIN@18" -> "Data::DPath::Path::BEGIN@27";
+"Data::DPath::Path::BEGIN@11" -> "warnings::import";
+"Data::DPath::Path::BEGIN@17" -> "Text::Balanced::BEGIN@9";
+"Data::DPath::Path::BEGIN@13" -> "Data::Dumper::BEGIN@16";
+"Data::DPath::BEGIN@18" -> "Data::DPath::Path::BEGIN@14";
+"Data::DPath::Path::BEGIN@13" -> "Data::Dumper::BEGIN@683";
+"Data::DPath::Path::BEGIN@17" -> "Exporter::export_ok_tags";
+"Data::DPath::Path::BEGIN@17" -> "Text::Balanced::BEGIN@12";
+"Data::DPath::Path::BEGIN@13" -> "Data::Dumper::BEGIN@20";
+"Data::DPath::BEGIN@18" -> "Data::DPath::Path::BEGIN@15";
+"Data::DPath::Path::BEGIN@13" -> "overload::BEGIN@147";
+"Data::DPath::Path::BEGIN@17" -> "Text::Balanced::ErrorMsg::BEGIN@1021";
+"Data::DPath::BEGIN@18" -> "Data::DPath::Path::BEGIN@17";
+"Data::DPath::Path::BEGIN@20" -> "Class::XSAccessor::import";
+"Data::DPath::Path::BEGIN@17" -> "Text::Balanced::BEGIN@6";
+"Data::DPath::Path::BEGIN@17" -> "Text::Balanced::BEGIN@11";
+"Data::DPath::BEGIN@18" -> "Data::DPath::Path::BEGIN@13";
+"Data::DPath::Path::BEGIN@13" -> "XSLoader::load";
+"Data::DPath::BEGIN@18" -> "Data::DPath::Path::BEGIN@10";
+"Data::DPath::BEGIN@18" -> "Data::DPath::Path::BEGIN@11";
+"Data::DPath::Path::BEGIN@17" -> "UNIVERSAL::VERSION";
+"Data::DPath::Path::BEGIN@10" -> "strict::import";
+"Data::DPath::Path::BEGIN@17" -> "Text::Balanced::BEGIN@885";
+}

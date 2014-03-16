@@ -1,0 +1,47 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Class_XSAccessor_Array {
+	label="Class::XSAccessor::Array";
+	"Class::XSAccessor::Array::BEGIN@2";
+	"Class::XSAccessor::Array::BEGIN@4";
+	"Class::XSAccessor::Array::import";
+	"Class::XSAccessor::Array::BEGIN@62";
+	"Class::XSAccessor::Array::BEGIN@7";
+	"Class::XSAccessor::Array::BEGIN@5";
+	"Class::XSAccessor::Array::BEGIN@3";
+	"Class::XSAccessor::Array::BEGIN@6";
+}
+subgraph cluster_warnings {
+	label="warnings";
+	"warnings::import";
+}
+subgraph cluster_Data_DPath_Step {
+	label="Data::DPath::Step";
+	"Data::DPath::Step::BEGIN@11";
+	"Data::DPath::Step::BEGIN@10";
+	"Data::DPath::Step::BEGIN@14";
+	"Data::DPath::Step::BEGIN@2";
+}
+subgraph cluster_Data_DPath_Path {
+	label="Data::DPath::Path";
+	"Data::DPath::Path::BEGIN@1";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+}
+"Data::DPath::Step::BEGIN@14" -> "Class::XSAccessor::Array::BEGIN@2";
+"Data::DPath::Step::BEGIN@14" -> "Class::XSAccessor::Array::BEGIN@7";
+"Data::DPath::Step::BEGIN@14" -> "Class::XSAccessor::Array::import";
+"Data::DPath::Step::BEGIN@11" -> "warnings::import";
+"Data::DPath::Step::BEGIN@14" -> "Class::XSAccessor::Array::BEGIN@5";
+"Data::DPath::Path::BEGIN@1" -> "Data::DPath::Step::BEGIN@10";
+"Data::DPath::Path::BEGIN@1" -> "Data::DPath::Step::BEGIN@11";
+"Data::DPath::Path::BEGIN@1" -> "Data::DPath::Step::BEGIN@2";
+"Data::DPath::Step::BEGIN@14" -> "Class::XSAccessor::Array::BEGIN@62";
+"Data::DPath::Step::BEGIN@14" -> "Class::XSAccessor::Array::BEGIN@3";
+"Data::DPath::Step::BEGIN@14" -> "Class::XSAccessor::Array::BEGIN@6";
+"Data::DPath::Path::BEGIN@1" -> "Data::DPath::Step::BEGIN@14";
+"Data::DPath::Step::BEGIN@14" -> "Class::XSAccessor::Array::BEGIN@4";
+"Data::DPath::Step::BEGIN@10" -> "strict::import";
+}

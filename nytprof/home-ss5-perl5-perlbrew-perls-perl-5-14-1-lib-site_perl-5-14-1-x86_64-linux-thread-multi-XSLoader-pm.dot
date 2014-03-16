@@ -1,0 +1,49 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Data_DPath_Context {
+	label="Data::DPath::Context";
+	"Data::DPath::Context::BEGIN@17";
+	"Data::DPath::Context::BEGIN@22";
+}
+subgraph cluster_Safe {
+	label="Safe";
+	"Safe::BEGIN@46";
+}
+subgraph cluster_Class_XSAccessor_Array {
+	label="Class::XSAccessor::Array";
+	"Class::XSAccessor::Array::BEGIN@6";
+}
+subgraph cluster_B {
+	label="B";
+	"B::BEGIN@17";
+}
+subgraph cluster_Data_DPath_Path {
+	label="Data::DPath::Path";
+	"Data::DPath::Path::BEGIN@13";
+}
+subgraph cluster_XSLoader {
+	label="XSLoader";
+	"XSLoader::load";
+}
+subgraph cluster_IO_Handle {
+	label="IO::Handle";
+	"IO::Handle::BEGIN@266";
+}
+subgraph cluster_POSIX {
+	label="POSIX";
+	"POSIX::BEGIN@13";
+}
+subgraph cluster_Attribute_Handlers {
+	label="Attribute::Handlers";
+	"Attribute::Handlers::BEGIN@110";
+}
+"Safe::BEGIN@46" -> "XSLoader::load";
+"B::BEGIN@17" -> "XSLoader::load";
+"IO::Handle::BEGIN@266" -> "XSLoader::load";
+"Data::DPath::Path::BEGIN@13" -> "XSLoader::load";
+"Data::DPath::Context::BEGIN@17" -> "XSLoader::load";
+"POSIX::BEGIN@13" -> "XSLoader::load";
+"Class::XSAccessor::Array::BEGIN@6" -> "XSLoader::load";
+"Attribute::Handlers::BEGIN@110" -> "XSLoader::load";
+"Data::DPath::Context::BEGIN@22" -> "XSLoader::load";
+}

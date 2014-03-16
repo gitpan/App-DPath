@@ -1,0 +1,323 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Internals {
+	label="Internals";
+	"Internals::SvREADONLY";
+}
+subgraph cluster_Config {
+	label="Config";
+	"Config::FETCH";
+}
+subgraph cluster_Test_Builder {
+	label="Test::Builder";
+	"Test::Builder::END";
+	"Test::Builder::BEGIN@19";
+	"Test::Builder::new";
+}
+subgraph cluster_Config_General {
+	label="Config::General";
+	"Config::General::BEGIN@15";
+	"Config::General::BEGIN@22";
+	"Config::General::BEGIN@38";
+	"Config::General::BEGIN@16";
+	"Config::General::BEGIN@19";
+	"Config::General::BEGIN@32";
+	"Config::General::BEGIN@37";
+	"Config::General::BEGIN@29";
+	"Config::General::BEGIN@33";
+	"Config::General::BEGIN@21";
+	"Config::General::BEGIN@20";
+	"Config::General::BEGIN@17";
+}
+subgraph cluster_Data_Structure_Util {
+	label="Data::Structure::Util";
+	"Data::Structure::Util::BEGIN@7";
+	"Data::Structure::Util::BEGIN@9";
+	"Data::Structure::Util::BEGIN@5";
+	"Data::Structure::Util::BEGIN@8";
+	"Data::Structure::Util::BEGIN@6";
+	"Data::Structure::Util::BEGIN@3";
+	"Data::Structure::Util::unbless";
+}
+subgraph cluster_DynaLoader {
+	label="DynaLoader";
+	"DynaLoader::BEGIN@18";
+	"DynaLoader::BEGIN@22";
+	"DynaLoader::bootstrap";
+}
+subgraph cluster_Test_Deep {
+	label="Test::Deep";
+	"Test::Deep::wrap";
+	"Test::Deep::BEGIN@5";
+	"Test::Deep::cmp_deeply";
+	"Test::Deep::BEGIN@8";
+	"Test::Deep::CORE:subst";
+	"Test::Deep::BEGIN@7";
+	"Test::Deep::BEGIN@82";
+	"Test::Deep::BEGIN@12";
+	"Test::Deep::BEGIN@9";
+}
+subgraph cluster_base {
+	label="base";
+	"base::import";
+}
+subgraph cluster_warnings {
+	label="warnings";
+	"warnings::CORE:regcomp";
+	"warnings::CORE:match";
+	"warnings::import";
+}
+subgraph cluster_JSON_Backend_PP {
+	label="JSON::Backend::PP";
+	"JSON::Backend::PP::BEGIN@383";
+}
+subgraph cluster_Data_Dumper {
+	label="Data::Dumper";
+	"Data::Dumper::BEGIN@22";
+	"Data::Dumper::BEGIN@16";
+	"Data::Dumper::BEGIN@683";
+	"Data::Dumper::BEGIN@20";
+}
+subgraph cluster_overload {
+	label="overload";
+	"overload::BEGIN@147";
+}
+subgraph cluster_main {
+	label="main";
+	"main::BEGIN@10";
+	"main::CORE:system";
+	"main::BEGIN@8";
+	"main::BEGIN@1.5";
+	"main::BEGIN@12";
+	"main::check";
+	"main::BEGIN@2.6";
+	"main::BEGIN@3";
+	"main::BEGIN@7";
+	"main::BEGIN@13";
+	"main::BEGIN@1";
+	"main::BEGIN@6";
+	"main::BEGIN@9";
+	"main::CORE:backtick";
+	"main::BEGIN@2";
+	"main::BEGIN@4";
+	"main::RUNTIME";
+	"main::BEGIN@11";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+	"strict::CORE:regcomp";
+	"strict::bits";
+	"strict::CORE:match";
+}
+subgraph cluster_Test_More {
+	label="Test::More";
+	"Test::More::BEGIN@1255";
+	"Test::More::BEGIN@1332";
+	"Test::More::BEGIN@3";
+	"Test::More::done_testing";
+	"Test::More::diag";
+	"Test::More::BEGIN@1621";
+	"Test::More::BEGIN@5";
+	"Test::More::isnt";
+	"Test::More::BEGIN@4";
+	"Test::More::BEGIN@23";
+}
+subgraph cluster_attributes {
+	label="attributes";
+	"attributes::import";
+}
+subgraph cluster_Scalar_Util {
+	label="Scalar::Util";
+	"Scalar::Util::refaddr";
+}
+subgraph cluster_XSLoader {
+	label="XSLoader";
+	"XSLoader::load";
+}
+subgraph cluster_UNIVERSAL {
+	label="UNIVERSAL";
+	"UNIVERSAL::isa";
+	"UNIVERSAL::VERSION";
+	"UNIVERSAL::can";
+}
+subgraph cluster_Config_INI_Serializer {
+	label="Config::INI::Serializer";
+	"Config::INI::Serializer::new";
+	"Config::INI::Serializer::BEGIN@130";
+	"Config::INI::Serializer::deserialize";
+}
+subgraph cluster_Test_Builder_Module {
+	label="Test::Builder::Module";
+	"Test::Builder::Module::import";
+}
+subgraph cluster_version {
+	label="version";
+	"version::(bool";
+	"version::(cmp";
+}
+subgraph cluster_constant {
+	label="constant";
+	"constant::import";
+}
+subgraph cluster_YAML_Syck {
+	label="YAML::Syck";
+	"YAML::Syck::Load";
+	"YAML::Syck::BEGIN@4";
+	"YAML::Syck::BEGIN@36";
+	"YAML::Syck::BEGIN@15";
+	"YAML::Syck::BEGIN@5";
+	"YAML::Syck::LoadYAML";
+	"YAML::Syck::BEGIN@12";
+	"YAML::Syck::BEGIN@13";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_utf8 {
+	label="utf8";
+	"utf8::is_utf8";
+}
+subgraph cluster_JSON {
+	label="JSON";
+	"JSON::BEGIN@318";
+	"JSON::BEGIN@9";
+	"JSON::BEGIN@6";
+	"JSON::BEGIN@4";
+	"JSON::BEGIN@5";
+	"JSON::from_json";
+	"JSON::import";
+	"JSON::_load_xs";
+	"JSON::BEGIN@2";
+}
+subgraph cluster_mro {
+	label="mro";
+	"mro::method_changed_in";
+}
+subgraph cluster_AutoLoader {
+	label="AutoLoader";
+	"AutoLoader::BEGIN@138";
+	"AutoLoader::BEGIN@30";
+	"AutoLoader::BEGIN@4";
+	"AutoLoader::BEGIN@186";
+	"AutoLoader::BEGIN@3";
+	"AutoLoader::BEGIN@13";
+}
+"main::BEGIN@13" -> "AutoLoader::BEGIN@138";
+"main::BEGIN@11" -> "Config::General::BEGIN@38";
+"main::BEGIN@7" -> "Test::More::BEGIN@1332";
+"main::BEGIN@10" -> "YAML::Syck::BEGIN@15";
+"main::BEGIN@7" -> "Test::More::BEGIN@3";
+"main::BEGIN@8" -> "Test::Deep::CORE:subst";
+"main::BEGIN@10" -> "YAML::Syck::BEGIN@5";
+"main::BEGIN@6" -> "Data::Dumper::BEGIN@22";
+"constant::import" -> "mro::method_changed_in";
+"main::RUNTIME" -> "main::BEGIN@3";
+"main::BEGIN@13" -> "AutoLoader::BEGIN@3";
+"main::BEGIN@3" -> "strict::CORE:match";
+"main::BEGIN@7" -> "Test::More::BEGIN@23";
+"main::BEGIN@13" -> "Data::Structure::Util::BEGIN@9";
+"main::BEGIN@9" -> "JSON::BEGIN@6";
+"main::RUNTIME" -> "main::BEGIN@7";
+"main::RUNTIME" -> "main::BEGIN@13";
+"main::BEGIN@3" -> "strict::bits";
+"main::check" -> "Data::Structure::Util::unbless";
+"main::BEGIN@13" -> "Exporter::import";
+"main::BEGIN@10" -> "Exporter::import";
+"main::BEGIN@8" -> "Exporter::import";
+"main::BEGIN@6" -> "Exporter::import";
+"main::BEGIN@11" -> "Exporter::import";
+"main::RUNTIME" -> "Test::More::isnt";
+"main::check" -> "YAML::Syck::LoadYAML";
+"main::BEGIN@8" -> "Test::Deep::BEGIN@7";
+"attributes::import" -> "UNIVERSAL::can";
+"Config::General::BEGIN@21" -> "UNIVERSAL::can";
+"main::BEGIN@13" -> "AutoLoader::BEGIN@4";
+"main::BEGIN@7" -> "Test::More::BEGIN@4";
+"main::BEGIN@13" -> "DynaLoader::bootstrap";
+"main::BEGIN@7" -> "Test::More::BEGIN@1255";
+"main::BEGIN@11" -> "Config::General::BEGIN@22";
+"main::BEGIN@11" -> "Config::General::BEGIN@16";
+"main::BEGIN@4" -> "warnings::CORE:match";
+"main::BEGIN@9" -> "JSON::BEGIN@4";
+"main::BEGIN@7" -> "Test::More::BEGIN@1621";
+"main::BEGIN@10" -> "YAML::Syck::BEGIN@12";
+"Test::Deep::wrap" -> "UNIVERSAL::isa";
+"base::import" -> "UNIVERSAL::isa";
+"main::RUNTIME" -> "main::check";
+"main::BEGIN@11" -> "Config::General::BEGIN@29";
+"main::BEGIN@3" -> "strict::CORE:regcomp";
+"main::BEGIN@11" -> "Config::General::BEGIN@33";
+"Test::Builder::BEGIN@19" -> "version::(bool";
+"main::BEGIN@10" -> "YAML::Syck::BEGIN@36";
+"main::BEGIN@4" -> "warnings::import";
+"main::BEGIN@8" -> "Test::Deep::BEGIN@8";
+"constant::import" -> "Internals::SvREADONLY";
+"main::RUNTIME" -> "main::BEGIN@6";
+"main::BEGIN@9" -> "JSON::BEGIN@5";
+"main::check" -> "main::CORE:backtick";
+"main::BEGIN@6" -> "Data::Dumper::BEGIN@16";
+"main::BEGIN@8" -> "Scalar::Util::refaddr";
+"main::BEGIN@11" -> "Config::General::BEGIN@21";
+"constant::import" -> "utf8::is_utf8";
+"main::BEGIN@6" -> "Data::Dumper::BEGIN@683";
+"main::BEGIN@13" -> "Data::Structure::Util::BEGIN@8";
+"main::RUNTIME" -> "main::CORE:system";
+"main::BEGIN@13" -> "AutoLoader::BEGIN@186";
+"main::BEGIN@12" -> "main::BEGIN@1.5";
+"main::RUNTIME" -> "main::BEGIN@12";
+"main::BEGIN@13" -> "Data::Structure::Util::BEGIN@5";
+"main::BEGIN@12" -> "main::BEGIN@2.6";
+"main::BEGIN@8" -> "Test::Deep::BEGIN@82";
+"main::BEGIN@10" -> "YAML::Syck::BEGIN@13";
+"main::BEGIN@6" -> "Data::Dumper::BEGIN@20";
+"main::check" -> "YAML::Syck::Load";
+"main::BEGIN@6" -> "overload::BEGIN@147";
+"main::BEGIN@11" -> "Config::General::BEGIN@15";
+"main::BEGIN@13" -> "Data::Structure::Util::BEGIN@3";
+"Test::Builder::BEGIN@19" -> "version::(cmp";
+"main::BEGIN@8" -> "Test::Builder::new";
+"main::check" -> "Test::Deep::cmp_deeply";
+"main::RUNTIME" -> "Test::More::done_testing";
+"main::RUNTIME" -> "Test::More::diag";
+"main::BEGIN@8" -> "main::BEGIN@2";
+"main::BEGIN@9" -> "JSON::import";
+"main::BEGIN@13" -> "DynaLoader::BEGIN@18";
+"main::BEGIN@9" -> "JSON::_load_xs";
+"main::BEGIN@7" -> "Test::Builder::Module::import";
+"main::BEGIN@12" -> "Config::INI::Serializer::BEGIN@130";
+"main::BEGIN@11" -> "Config::General::BEGIN@17";
+"main::RUNTIME" -> "main::BEGIN@10";
+"main::BEGIN@10" -> "YAML::Syck::BEGIN@4";
+"main::BEGIN@11" -> "Config::General::BEGIN@19";
+"main::BEGIN@13" -> "Data::Structure::Util::BEGIN@6";
+"main::BEGIN@8" -> "Test::Deep::BEGIN@5";
+"main::RUNTIME" -> "main::BEGIN@8";
+"main::check" -> "Config::INI::Serializer::deserialize";
+"main::BEGIN@11" -> "Config::General::BEGIN@32";
+"main::BEGIN@6" -> "XSLoader::load";
+"main::BEGIN@8" -> "Test::Deep::BEGIN@12";
+"main::BEGIN@13" -> "AutoLoader::BEGIN@13";
+"main::BEGIN@9" -> "JSON::Backend::PP::BEGIN@383";
+"main::BEGIN@13" -> "Config::FETCH";
+"main::BEGIN@13" -> "Data::Structure::Util::BEGIN@7";
+"main::BEGIN@9" -> "JSON::BEGIN@318";
+"main::BEGIN@9" -> "JSON::BEGIN@9";
+"main::BEGIN@8" -> "main::BEGIN@1";
+"main::BEGIN@13" -> "DynaLoader::BEGIN@22";
+"main::RUNTIME" -> "main::BEGIN@9";
+"main::check" -> "JSON::from_json";
+"main::BEGIN@7" -> "Test::More::BEGIN@5";
+"main::BEGIN@4" -> "warnings::CORE:regcomp";
+"main::RUNTIME" -> "Test::Builder::END";
+"JSON::BEGIN@2" -> "UNIVERSAL::VERSION";
+"main::BEGIN@3" -> "strict::import";
+"main::BEGIN@11" -> "Config::General::BEGIN@37";
+"main::check" -> "Config::INI::Serializer::new";
+"main::RUNTIME" -> "main::BEGIN@4";
+"main::BEGIN@13" -> "AutoLoader::BEGIN@30";
+"main::BEGIN@8" -> "Test::Deep::BEGIN@9";
+"main::BEGIN@11" -> "Config::General::BEGIN@20";
+"main::RUNTIME" -> "main::BEGIN@11";
+}

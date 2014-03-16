@@ -1,0 +1,30 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Config_General {
+	label="Config::General";
+	"Config::General::BEGIN@21";
+}
+subgraph cluster_vars {
+	label="vars";
+	"vars::import";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+	"strict::unimport";
+}
+subgraph cluster_File_Spec_Functions {
+	label="File::Spec::Functions";
+	"File::Spec::Functions::BEGIN@3";
+	"File::Spec::Functions::BEGIN@6";
+	"File::Spec::Functions::BEGIN@42";
+	"File::Spec::Functions::BEGIN@4";
+}
+"Config::General::BEGIN@21" -> "File::Spec::Functions::BEGIN@6";
+"Config::General::BEGIN@21" -> "File::Spec::Functions::BEGIN@42";
+"Config::General::BEGIN@21" -> "File::Spec::Functions::BEGIN@4";
+"File::Spec::Functions::BEGIN@42" -> "strict::unimport";
+"Config::General::BEGIN@21" -> "File::Spec::Functions::BEGIN@3";
+"File::Spec::Functions::BEGIN@6" -> "vars::import";
+"File::Spec::Functions::BEGIN@4" -> "strict::import";
+}

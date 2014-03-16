@@ -1,0 +1,173 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Data_DPath_Filters {
+	label="Data::DPath::Filters";
+	"Data::DPath::Filters::BEGIN@14";
+	"Data::DPath::Filters::BEGIN@13";
+}
+subgraph cluster_IO {
+	label="IO";
+	"IO::BEGIN@6";
+}
+subgraph cluster_Data_DPath_Context {
+	label="Data::DPath::Context";
+	"Data::DPath::Context::BEGIN@19";
+	"Data::DPath::Context::BEGIN@17";
+	"Data::DPath::Context::BEGIN@13";
+	"Data::DPath::Context::BEGIN@16";
+	"Data::DPath::Context::BEGIN@20";
+}
+subgraph cluster_Opcode {
+	label="Opcode";
+	"Opcode::BEGIN@11";
+}
+subgraph cluster_Safe {
+	label="Safe";
+	"Safe::BEGIN@29";
+	"Safe::BEGIN@46";
+	"Safe::BEGIN@4";
+}
+subgraph cluster_Class_XSAccessor_Array {
+	label="Class::XSAccessor::Array";
+	"Class::XSAccessor::Array::BEGIN@5";
+}
+subgraph cluster_Devel_StackTrace {
+	label="Devel::StackTrace";
+	"Devel::StackTrace::BEGIN@13";
+}
+subgraph cluster_Data_Dumper {
+	label="Data::Dumper";
+	"Data::Dumper::BEGIN@20";
+}
+subgraph cluster_Data_OptList {
+	label="Data::OptList";
+	"Data::OptList::BEGIN@10";
+}
+subgraph cluster_main {
+	label="main";
+	"main::BEGIN@11";
+}
+subgraph cluster_Tie_Hash {
+	label="Tie::Hash";
+	"Tie::Hash::BEGIN@188";
+}
+subgraph cluster_Data_DPath_Path {
+	label="Data::DPath::Path";
+	"Data::DPath::Path::BEGIN@13";
+	"Data::DPath::Path::BEGIN@17";
+}
+subgraph cluster_SelfLoader {
+	label="SelfLoader";
+	"SelfLoader::BEGIN@4";
+	"SelfLoader::BEGIN@42";
+}
+subgraph cluster_IO_Handle {
+	label="IO::Handle";
+	"IO::Handle::BEGIN@264";
+	"IO::Handle::BEGIN@263";
+}
+subgraph cluster_Class_XSAccessor_Heavy {
+	label="Class::XSAccessor::Heavy";
+	"Class::XSAccessor::Heavy::BEGIN@7";
+}
+subgraph cluster_POSIX {
+	label="POSIX";
+	"POSIX::BEGIN@13";
+	"POSIX::import";
+}
+subgraph cluster_Text_Balanced {
+	label="Text::Balanced";
+	"Text::Balanced::BEGIN@343";
+	"Text::Balanced::BEGIN@885";
+	"Text::Balanced::BEGIN@9";
+}
+subgraph cluster_Exporter_Heavy {
+	label="Exporter::Heavy";
+	"Exporter::Heavy::BEGIN@197";
+	"Exporter::Heavy::BEGIN@4";
+	"Exporter::Heavy::heavy_export";
+	"Exporter::Heavy::BEGIN@3";
+}
+subgraph cluster_Attribute_Handlers {
+	label="Attribute::Handlers";
+	"Attribute::Handlers::BEGIN@3";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+	"Exporter::as_heavy";
+	"Exporter::CORE:subst";
+	"Exporter::export";
+	"Exporter::export_ok_tags";
+	"Exporter::CORE:match";
+}
+subgraph cluster_Class_XSAccessor {
+	label="Class::XSAccessor";
+	"Class::XSAccessor::BEGIN@5";
+}
+subgraph cluster_Exception_Class_Base {
+	label="Exception::Class::Base";
+	"Exception::Class::Base::BEGIN@11";
+}
+subgraph cluster_Exception_Class {
+	label="Exception::Class";
+	"Exception::Class::BEGIN@11";
+}
+subgraph cluster_SelectSaver {
+	label="SelectSaver";
+	"SelectSaver::BEGIN@38";
+	"SelectSaver::BEGIN@39";
+}
+subgraph cluster_Sub_Install {
+	label="Sub::Install";
+	"Sub::Install::BEGIN@6";
+}
+"Exporter::export" -> "Exporter::as_heavy";
+"Exporter::export_ok_tags" -> "Exporter::as_heavy";
+"Exporter::import" -> "Exporter::CORE:match";
+"Data::OptList::BEGIN@10" -> "Exporter::import";
+"Opcode::BEGIN@11" -> "Exporter::import";
+"Data::Dumper::BEGIN@20" -> "Exporter::import";
+"Safe::BEGIN@46" -> "Exporter::import";
+"Attribute::Handlers::BEGIN@3" -> "Exporter::import";
+"Data::DPath::Filters::BEGIN@13" -> "Exporter::import";
+"POSIX::import" -> "Exporter::import";
+"Data::DPath::Context::BEGIN@20" -> "Exporter::import";
+"IO::Handle::BEGIN@264" -> "Exporter::import";
+"POSIX::BEGIN@13" -> "Exporter::import";
+"Data::DPath::Context::BEGIN@13" -> "Exporter::import";
+"SelfLoader::BEGIN@42" -> "Exporter::import";
+"SelectSaver::BEGIN@38" -> "Exporter::import";
+"Data::DPath::Path::BEGIN@17" -> "Exporter::import";
+"Tie::Hash::BEGIN@188" -> "Exporter::import";
+"Data::DPath::Context::BEGIN@16" -> "Exporter::import";
+"Sub::Install::BEGIN@6" -> "Exporter::import";
+"Safe::BEGIN@29" -> "Exporter::import";
+"Data::DPath::Path::BEGIN@13" -> "Exporter::import";
+"Devel::StackTrace::BEGIN@13" -> "Exporter::import";
+"Data::DPath::Context::BEGIN@17" -> "Exporter::import";
+"Exception::Class::BEGIN@11" -> "Exporter::import";
+"Data::DPath::Filters::BEGIN@14" -> "Exporter::import";
+"IO::BEGIN@6" -> "Exporter::import";
+"SelfLoader::BEGIN@4" -> "Exporter::import";
+"Exception::Class::Base::BEGIN@11" -> "Exporter::import";
+"Data::DPath::Context::BEGIN@19" -> "Exporter::import";
+"Text::Balanced::BEGIN@343" -> "Exporter::import";
+"IO::Handle::BEGIN@263" -> "Exporter::import";
+"Safe::BEGIN@4" -> "Exporter::import";
+"Text::Balanced::BEGIN@9" -> "Exporter::import";
+"Class::XSAccessor::Heavy::BEGIN@7" -> "Exporter::import";
+"Class::XSAccessor::Array::BEGIN@5" -> "Exporter::import";
+"Class::XSAccessor::BEGIN@5" -> "Exporter::import";
+"Text::Balanced::BEGIN@885" -> "Exporter::import";
+"main::BEGIN@11" -> "Exporter::import";
+"SelectSaver::BEGIN@39" -> "Exporter::import";
+"Exporter::import" -> "Exporter::export";
+"Exporter::import" -> "Exporter::CORE:subst";
+"Exporter::as_heavy" -> "Exporter::CORE:subst";
+"Exporter::as_heavy" -> "Exporter::Heavy::BEGIN@4";
+"Data::DPath::Path::BEGIN@17" -> "Exporter::export_ok_tags";
+"Exporter::as_heavy" -> "Exporter::Heavy::BEGIN@197";
+"Exporter::import" -> "Exporter::Heavy::heavy_export";
+"Exporter::as_heavy" -> "Exporter::Heavy::BEGIN@3";
+}

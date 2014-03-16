@@ -1,0 +1,114 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_YAML_XS {
+	label="YAML::XS";
+	"YAML::XS::BEGIN@56";
+	"YAML::XS::BEGIN@19";
+	"YAML::XS::BEGIN@6";
+	"YAML::XS::BEGIN@101";
+}
+subgraph cluster_base {
+	label="base";
+	"base::import";
+}
+subgraph cluster_B {
+	label="B";
+	"B::threadsv_names";
+}
+subgraph cluster_YAML_XS_LibYAML {
+	label="YAML::XS::LibYAML";
+	"YAML::XS::LibYAML::BEGIN@8";
+	"YAML::XS::LibYAML::BEGIN@3";
+	"YAML::XS::LibYAML::BEGIN@6";
+	"YAML::XS::LibYAML::BEGIN@4";
+	"YAML::XS::LibYAML::BEGIN@2";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+}
+subgraph cluster_XSLoader {
+	label="XSLoader";
+	"XSLoader::load";
+}
+subgraph cluster_B_Deparse {
+	label="B::Deparse";
+	"B::Deparse::BEGIN@2060";
+	"B::Deparse::BEGIN@2792";
+	"B::Deparse::BEGIN@482";
+	"B::Deparse::BEGIN@11";
+	"B::Deparse::BEGIN@3629";
+	"B::Deparse::BEGIN@1244";
+	"B::Deparse::BEGIN@3435";
+	"B::Deparse::BEGIN@3368";
+	"B::Deparse::BEGIN@688";
+	"B::Deparse::BEGIN@2791";
+	"B::Deparse::BEGIN@3436";
+	"B::Deparse::BEGIN@3369";
+	"B::Deparse::BEGIN@40";
+	"B::Deparse::BEGIN@30";
+	"B::Deparse::BEGIN@12";
+	"B::Deparse::BEGIN@613";
+	"B::Deparse::BEGIN@31";
+	"B::Deparse::CORE:sort";
+	"B::Deparse::BEGIN@34";
+	"B::Deparse::BEGIN@2789";
+	"B::Deparse::BEGIN@32";
+	"B::Deparse::BEGIN@2029";
+	"B::Deparse::BEGIN@2790";
+}
+subgraph cluster_YAML_Any {
+	label="YAML::Any";
+	"YAML::Any::BEGIN@1";
+	"YAML::Any::implementation";
+	"YAML::Any::BEGIN@2";
+}
+subgraph cluster_constant {
+	label="constant";
+	"constant::import";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+"YAML::XS::BEGIN@56" -> "B::Deparse::BEGIN@482";
+"YAML::XS::BEGIN@56" -> "B::Deparse::BEGIN@1244";
+"YAML::XS::BEGIN@56" -> "B::Deparse::BEGIN@688";
+"YAML::XS::BEGIN@56" -> "B::Deparse::BEGIN@3436";
+"YAML::XS::BEGIN@56" -> "B::Deparse::BEGIN@12";
+"YAML::XS::BEGIN@56" -> "B::Deparse::BEGIN@31";
+"YAML::XS::BEGIN@56" -> "B::Deparse::BEGIN@34";
+"YAML::XS::BEGIN@19" -> "Exporter::import";
+"YAML::Any::implementation" -> "YAML::Any::BEGIN@1";
+"YAML::XS::BEGIN@56" -> "B::Deparse::BEGIN@32";
+"YAML::XS::BEGIN@19" -> "YAML::XS::LibYAML::BEGIN@2";
+"YAML::XS::BEGIN@101" -> "constant::import";
+"YAML::Any::implementation" -> "YAML::XS::BEGIN@19";
+"YAML::XS::BEGIN@56" -> "B::Deparse::BEGIN@3629";
+"YAML::XS::BEGIN@6" -> "base::import";
+"YAML::XS::BEGIN@56" -> "B::Deparse::BEGIN@11";
+"YAML::XS::BEGIN@19" -> "YAML::XS::LibYAML::BEGIN@8";
+"YAML::XS::BEGIN@56" -> "B::Deparse::BEGIN@2791";
+"YAML::Any::implementation" -> "YAML::XS::BEGIN@56";
+"YAML::XS::BEGIN@56" -> "B::Deparse::BEGIN@613";
+"YAML::XS::BEGIN@56" -> "B::Deparse::CORE:sort";
+"YAML::XS::BEGIN@56" -> "B::Deparse::BEGIN@2029";
+"YAML::XS::BEGIN@56" -> "B::Deparse::BEGIN@2792";
+"YAML::XS::BEGIN@56" -> "B::Deparse::BEGIN@3435";
+"YAML::XS::BEGIN@56" -> "B::Deparse::BEGIN@3369";
+"YAML::XS::BEGIN@56" -> "B::Deparse::BEGIN@2060";
+"YAML::XS::BEGIN@19" -> "YAML::XS::LibYAML::BEGIN@3";
+"YAML::XS::BEGIN@19" -> "YAML::XS::LibYAML::BEGIN@6";
+"YAML::XS::BEGIN@56" -> "B::threadsv_names";
+"YAML::XS::BEGIN@19" -> "XSLoader::load";
+"YAML::XS::BEGIN@56" -> "B::Deparse::BEGIN@3368";
+"YAML::XS::BEGIN@56" -> "B::Deparse::BEGIN@30";
+"YAML::XS::BEGIN@56" -> "B::Deparse::BEGIN@40";
+"YAML::XS::BEGIN@19" -> "YAML::XS::LibYAML::BEGIN@4";
+"YAML::Any::implementation" -> "YAML::XS::BEGIN@101";
+"YAML::XS::BEGIN@56" -> "B::Deparse::BEGIN@2789";
+"YAML::Any::BEGIN@2" -> "strict::import";
+"YAML::Any::implementation" -> "YAML::XS::BEGIN@6";
+"YAML::XS::BEGIN@56" -> "B::Deparse::BEGIN@2790";
+"YAML::Any::implementation" -> "YAML::Any::BEGIN@2";
+}

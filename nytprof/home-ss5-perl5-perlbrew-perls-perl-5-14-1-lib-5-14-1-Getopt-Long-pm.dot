@@ -1,0 +1,140 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_App_Rad {
+	label="App::Rad";
+	"App::Rad::getopt";
+}
+subgraph cluster_Getopt_Long {
+	label="Getopt::Long";
+	"Getopt::Long::CORE:match";
+	"Getopt::Long::FindOption";
+	"Getopt::Long::BEGIN@220";
+	"Getopt::Long::BEGIN@208";
+	"Getopt::Long::BEGIN@237";
+	"Getopt::Long::CORE:regcomp";
+	"Getopt::Long::Configure";
+	"Getopt::Long::BEGIN@226";
+	"Getopt::Long::BEGIN@236";
+	"Getopt::Long::BEGIN@37";
+	"Getopt::Long::BEGIN@225";
+	"Getopt::Long::BEGIN@218";
+	"Getopt::Long::BEGIN@25";
+	"Getopt::Long::BEGIN@46";
+	"Getopt::Long::ParseOptionSpec";
+	"Getopt::Long::GetOptions";
+	"Getopt::Long::BEGIN@222";
+	"Getopt::Long::BEGIN@51";
+	"Getopt::Long::BEGIN@15";
+	"Getopt::Long::BEGIN@228";
+	"Getopt::Long::BEGIN@223";
+	"Getopt::Long::BEGIN@247";
+	"Getopt::Long::BEGIN@229";
+	"Getopt::Long::GetOptionsFromArray";
+	"Getopt::Long::ConfigDefaults";
+	"Getopt::Long::BEGIN@48";
+	"Getopt::Long::BEGIN@19";
+	"Getopt::Long::BEGIN@17";
+	"Getopt::Long::BEGIN@224";
+	"Getopt::Long::BEGIN@26";
+	"Getopt::Long::BEGIN@45";
+}
+subgraph cluster_Getopt_Long_CallBack {
+	label="Getopt::Long::CallBack";
+	"Getopt::Long::CallBack::BEGIN@1489";
+}
+subgraph cluster_overload {
+	label="overload";
+	"overload::import";
+}
+subgraph cluster_vars {
+	label="vars";
+	"vars::import";
+}
+subgraph cluster_Getopt_Long_Parser {
+	label="Getopt::Long::Parser";
+	"Getopt::Long::Parser::new";
+	"Getopt::Long::Parser::configure";
+	"Getopt::Long::Parser::getoptions";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+}
+subgraph cluster_UNIVERSAL {
+	label="UNIVERSAL";
+	"UNIVERSAL::isa";
+}
+subgraph cluster_constant {
+	label="constant";
+	"constant::import";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+"App::Rad::getopt" -> "Getopt::Long::BEGIN@220";
+"App::Rad::getopt" -> "Getopt::Long::BEGIN@225";
+"App::Rad::getopt" -> "Getopt::Long::BEGIN@46";
+"App::Rad::getopt" -> "Getopt::Long::BEGIN@51";
+"App::Rad::getopt" -> "Getopt::Long::BEGIN@247";
+"Getopt::Long::BEGIN@25" -> "Exporter::import";
+"App::Rad::getopt" -> "Getopt::Long::BEGIN@19";
+"App::Rad::getopt" -> "Getopt::Long::BEGIN@26";
+"Getopt::Long::BEGIN@220" -> "constant::import";
+"Getopt::Long::BEGIN@237" -> "constant::import";
+"Getopt::Long::BEGIN@208" -> "constant::import";
+"Getopt::Long::BEGIN@236" -> "constant::import";
+"Getopt::Long::BEGIN@226" -> "constant::import";
+"Getopt::Long::BEGIN@225" -> "constant::import";
+"Getopt::Long::BEGIN@218" -> "constant::import";
+"Getopt::Long::BEGIN@222" -> "constant::import";
+"Getopt::Long::BEGIN@228" -> "constant::import";
+"Getopt::Long::BEGIN@223" -> "constant::import";
+"Getopt::Long::BEGIN@247" -> "constant::import";
+"Getopt::Long::BEGIN@229" -> "constant::import";
+"Getopt::Long::BEGIN@224" -> "constant::import";
+"App::Rad::getopt" -> "Getopt::Long::BEGIN@237";
+"App::Rad::getopt" -> "Getopt::Long::Configure";
+"Getopt::Long::Parser::getoptions" -> "Getopt::Long::Configure";
+"Getopt::Long::Parser::configure" -> "Getopt::Long::Configure";
+"App::Rad::getopt" -> "Getopt::Long::BEGIN@236";
+"App::Rad::getopt" -> "Getopt::Long::CallBack::BEGIN@1489";
+"App::Rad::getopt" -> "Getopt::Long::BEGIN@37";
+"Getopt::Long::GetOptionsFromArray" -> "UNIVERSAL::isa";
+"App::Rad::getopt" -> "Getopt::Long::BEGIN@25";
+"Getopt::Long::CallBack::BEGIN@1489" -> "overload::import";
+"Getopt::Long::Parser::getoptions" -> "Getopt::Long::GetOptions";
+"App::Rad::getopt" -> "Getopt::Long::BEGIN@15";
+"App::Rad::getopt" -> "Getopt::Long::Parser::getoptions";
+"App::Rad::getopt" -> "Getopt::Long::ConfigDefaults";
+"App::Rad::getopt" -> "Getopt::Long::BEGIN@17";
+"App::Rad::getopt" -> "Getopt::Long::BEGIN@45";
+"App::Rad::getopt" -> "Getopt::Long::BEGIN@224";
+"Getopt::Long::GetOptionsFromArray" -> "Getopt::Long::FindOption";
+"App::Rad::getopt" -> "Getopt::Long::BEGIN@226";
+"App::Rad::getopt" -> "Getopt::Long::BEGIN@218";
+"Getopt::Long::GetOptionsFromArray" -> "Getopt::Long::ParseOptionSpec";
+"App::Rad::getopt" -> "Getopt::Long::BEGIN@222";
+"Getopt::Long::BEGIN@46" -> "vars::import";
+"Getopt::Long::BEGIN@51" -> "vars::import";
+"Getopt::Long::BEGIN@19" -> "vars::import";
+"Getopt::Long::BEGIN@48" -> "vars::import";
+"Getopt::Long::BEGIN@26" -> "vars::import";
+"Getopt::Long::BEGIN@45" -> "vars::import";
+"App::Rad::getopt" -> "Getopt::Long::BEGIN@48";
+"Getopt::Long::FindOption" -> "Getopt::Long::CORE:match";
+"Getopt::Long::ParseOptionSpec" -> "Getopt::Long::CORE:match";
+"Getopt::Long::Configure" -> "Getopt::Long::CORE:match";
+"App::Rad::getopt" -> "Getopt::Long::CORE:match";
+"Getopt::Long::GetOptionsFromArray" -> "Getopt::Long::CORE:match";
+"App::Rad::getopt" -> "Getopt::Long::BEGIN@208";
+"Getopt::Long::FindOption" -> "Getopt::Long::CORE:regcomp";
+"Getopt::Long::GetOptionsFromArray" -> "Getopt::Long::CORE:regcomp";
+"App::Rad::getopt" -> "Getopt::Long::Parser::configure";
+"App::Rad::getopt" -> "Getopt::Long::Parser::new";
+"App::Rad::getopt" -> "Getopt::Long::BEGIN@228";
+"App::Rad::getopt" -> "Getopt::Long::BEGIN@223";
+"Getopt::Long::Parser::getoptions" -> "Getopt::Long::GetOptionsFromArray";
+"App::Rad::getopt" -> "Getopt::Long::BEGIN@229";
+"Getopt::Long::BEGIN@17" -> "strict::import";
+}

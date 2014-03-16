@@ -1,0 +1,104 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_App_Rad {
+	label="App::Rad";
+	"App::Rad::output";
+	"App::Rad::register";
+	"App::Rad::BEGIN@121";
+	"App::Rad::post_process";
+	"App::Rad::pre_process";
+	"App::Rad::is_command";
+	"App::Rad::BEGIN@3";
+	"App::Rad::_get_subs_from";
+	"App::Rad::_init";
+	"App::Rad::teardown";
+	"App::Rad::import";
+	"App::Rad::BEGIN@2";
+	"App::Rad::_register_functions";
+	"App::Rad::BEGIN@4";
+	"App::Rad::execute";
+	"App::Rad::BEGIN@93";
+	"App::Rad::debug";
+	"App::Rad::unregister";
+	"App::Rad::unregister_command";
+	"App::Rad::_tinygetopt";
+	"App::Rad::register_commands";
+	"App::Rad::argv";
+	"App::Rad::run";
+	"App::Rad::_get_input";
+	"App::Rad::CORE:print";
+	"App::Rad::BEGIN@5";
+	"App::Rad::BEGIN@6";
+}
+subgraph cluster_warnings {
+	label="warnings";
+	"warnings::import";
+}
+subgraph cluster_main {
+	label="main";
+	"main::BEGIN@9";
+	"main::setup";
+	"main::RUNTIME";
+	"main::help";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+	"strict::unimport";
+}
+subgraph cluster_App_Rad_Help {
+	label="App::Rad::Help";
+	"App::Rad::Help::BEGIN@2";
+	"App::Rad::Help::BEGIN@59";
+	"App::Rad::Help::register_help";
+	"App::Rad::Help::BEGIN@4";
+	"App::Rad::Help::BEGIN@3";
+	"App::Rad::Help::load";
+}
+"App::Rad::run" -> "App::Rad::_init";
+"main::BEGIN@9" -> "App::Rad::BEGIN@2";
+"App::Rad::run" -> "App::Rad::_register_functions";
+"App::Rad::execute" -> "main::help";
+"App::Rad::run" -> "App::Rad::execute";
+"main::RUNTIME" -> "App::Rad::run";
+"App::Rad::register_commands" -> "App::Rad::_get_subs_from";
+"App::Rad::_register_functions" -> "App::Rad::_get_subs_from";
+"App::Rad::BEGIN@121" -> "strict::unimport";
+"App::Rad::BEGIN@93" -> "strict::unimport";
+"main::BEGIN@9" -> "App::Rad::BEGIN@93";
+"App::Rad::BEGIN@5" -> "warnings::import";
+"App::Rad::_init" -> "App::Rad::Help::load";
+"main::BEGIN@9" -> "App::Rad::BEGIN@6";
+"main::BEGIN@9" -> "App::Rad::BEGIN@5";
+"App::Rad::register" -> "App::Rad::Help::register_help";
+"App::Rad::register_commands" -> "App::Rad::Help::register_help";
+"main::BEGIN@9" -> "App::Rad::BEGIN@121";
+"App::Rad::execute" -> "App::Rad::post_process";
+"main::BEGIN@9" -> "App::Rad::BEGIN@3";
+"App::Rad::BEGIN@3" -> "App::Rad::Help::BEGIN@2";
+"App::Rad::execute" -> "App::Rad::is_command";
+"main::BEGIN@9" -> "App::Rad::import";
+"App::Rad::BEGIN@3" -> "App::Rad::Help::BEGIN@3";
+"main::BEGIN@9" -> "App::Rad::BEGIN@4";
+"App::Rad::register" -> "App::Rad::debug";
+"App::Rad::register_commands" -> "App::Rad::debug";
+"App::Rad::_get_input" -> "App::Rad::debug";
+"App::Rad::_register_functions" -> "App::Rad::debug";
+"App::Rad::execute" -> "App::Rad::debug";
+"App::Rad::unregister_command" -> "App::Rad::unregister";
+"main::setup" -> "App::Rad::unregister_command";
+"App::Rad::_get_input" -> "App::Rad::_tinygetopt";
+"App::Rad::_get_input" -> "App::Rad::argv";
+"App::Rad::_tinygetopt" -> "App::Rad::argv";
+"App::Rad::run" -> "App::Rad::_get_input";
+"App::Rad::post_process" -> "App::Rad::CORE:print";
+"App::Rad::BEGIN@3" -> "App::Rad::Help::BEGIN@4";
+"App::Rad::Help::load" -> "App::Rad::register";
+"App::Rad::post_process" -> "App::Rad::output";
+"App::Rad::run" -> "main::setup";
+"App::Rad::execute" -> "App::Rad::pre_process";
+"App::Rad::run" -> "App::Rad::teardown";
+"App::Rad::BEGIN@3" -> "App::Rad::Help::BEGIN@59";
+"main::setup" -> "App::Rad::register_commands";
+"App::Rad::BEGIN@6" -> "strict::import";
+}

@@ -1,0 +1,357 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_Sub_Exporter {
+	label="Sub::Exporter";
+	"Sub::Exporter::BEGIN@1";
+}
+subgraph cluster_Data_DPath_Filters {
+	label="Data::DPath::Filters";
+	"Data::DPath::Filters::BEGIN@10";
+}
+subgraph cluster_aliased {
+	label="aliased";
+	"aliased::BEGIN@8";
+	"aliased::BEGIN@35";
+}
+subgraph cluster_File_Spec_Unix {
+	label="File::Spec::Unix";
+	"File::Spec::Unix::BEGIN@3";
+	"File::Spec::Unix::BEGIN@149";
+}
+subgraph cluster_Config {
+	label="Config";
+	"Config::BEGIN@45";
+	"Config::BEGIN@9";
+}
+subgraph cluster_App_Rad {
+	label="App::Rad";
+	"App::Rad::BEGIN@121";
+	"App::Rad::BEGIN@93";
+	"App::Rad::BEGIN@6";
+}
+subgraph cluster_List_Util {
+	label="List::Util";
+	"List::Util::BEGIN@11";
+}
+subgraph cluster_IO {
+	label="IO";
+	"IO::BEGIN@7";
+}
+subgraph cluster_Opcode {
+	label="Opcode";
+	"Opcode::BEGIN@5";
+}
+subgraph cluster_Data_DPath_Context {
+	label="Data::DPath::Context";
+	"Data::DPath::Context::BEGIN@10";
+	"Data::DPath::Context::BEGIN@158";
+	"Data::DPath::Context::BEGIN@424";
+	"Data::DPath::Context::BEGIN@15.4";
+	"Data::DPath::Context::BEGIN@222";
+}
+subgraph cluster_List_MoreUtils {
+	label="List::MoreUtils";
+	"List::MoreUtils::BEGIN@4";
+}
+subgraph cluster_Safe {
+	label="Safe";
+	"Safe::BEGIN@28";
+	"Safe::BEGIN@191";
+	"Safe::BEGIN@344";
+	"Safe::BEGIN@285";
+	"Safe::BEGIN@337";
+	"Safe::BEGIN@36";
+}
+subgraph cluster_Class_XSAccessor_Array {
+	label="Class::XSAccessor::Array";
+	"Class::XSAccessor::Array::BEGIN@3";
+}
+subgraph cluster_base {
+	label="base";
+	"base::BEGIN@3";
+}
+subgraph cluster_Devel_StackTrace {
+	label="Devel::StackTrace";
+	"Devel::StackTrace::BEGIN@8";
+}
+subgraph cluster_Data_DPath_Step {
+	label="Data::DPath::Step";
+	"Data::DPath::Step::BEGIN@10";
+}
+subgraph cluster_vars {
+	label="vars";
+	"vars::BEGIN@8";
+}
+subgraph cluster_B {
+	label="B";
+	"B::BEGIN@9";
+	"B::BEGIN@254";
+}
+subgraph cluster_main {
+	label="main";
+	"main::BEGIN@1.9";
+	"main::BEGIN@6";
+}
+subgraph cluster_Data_DPath_Path {
+	label="Data::DPath::Path";
+	"Data::DPath::Path::BEGIN@10";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+	"strict::CORE:regcomp";
+	"strict::unimport";
+	"strict::bits";
+	"strict::CORE:match";
+}
+subgraph cluster_SelfLoader {
+	label="SelfLoader";
+	"SelfLoader::BEGIN@3";
+	"SelfLoader::BEGIN@158";
+	"SelfLoader::BEGIN@93";
+	"SelfLoader::BEGIN@73";
+	"SelfLoader::BEGIN@91";
+}
+subgraph cluster_attributes {
+	label="attributes";
+	"attributes::BEGIN@9";
+}
+subgraph cluster_Scalar_Util {
+	label="Scalar::Util";
+	"Scalar::Util::BEGIN@9";
+}
+subgraph cluster_File_Spec {
+	label="File::Spec";
+	"File::Spec::BEGIN@3";
+}
+subgraph cluster_Fcntl {
+	label="Fcntl";
+	"Fcntl::BEGIN@58";
+}
+subgraph cluster_IO_Handle {
+	label="IO::Handle";
+	"IO::Handle::BEGIN@261";
+	"IO::Handle::BEGIN@624";
+}
+subgraph cluster_Class_XSAccessor_Heavy {
+	label="Class::XSAccessor::Heavy";
+	"Class::XSAccessor::Heavy::BEGIN@27";
+	"Class::XSAccessor::Heavy::BEGIN@5";
+}
+subgraph cluster_Params_Util {
+	label="Params::Util";
+	"Params::Util::BEGIN@59";
+}
+subgraph cluster_POSIX {
+	label="POSIX";
+	"POSIX::BEGIN@2";
+}
+subgraph cluster_Data_DPath_Attrs {
+	label="Data::DPath::Attrs";
+	"Data::DPath::Attrs::BEGIN@10";
+}
+subgraph cluster_Text_Balanced {
+	label="Text::Balanced";
+	"Text::Balanced::BEGIN@7";
+}
+subgraph cluster_Class_Data_Inheritable {
+	label="Class::Data::Inheritable";
+	"Class::Data::Inheritable::BEGIN@3";
+}
+subgraph cluster_Exporter_Heavy {
+	label="Exporter::Heavy";
+	"Exporter::Heavy::BEGIN@4";
+	"Exporter::Heavy::BEGIN@3";
+}
+subgraph cluster_Iterator_Util {
+	label="Iterator::Util";
+	"Iterator::Util::BEGIN@373";
+	"Iterator::Util::BEGIN@370";
+	"Iterator::Util::BEGIN@284";
+	"Iterator::Util::BEGIN@15";
+}
+subgraph cluster_Devel_StackTrace_Frame {
+	label="Devel::StackTrace::Frame";
+	"Devel::StackTrace::Frame::BEGIN@11";
+	"Devel::StackTrace::Frame::BEGIN@6";
+}
+subgraph cluster_Attribute_Handlers {
+	label="Attribute::Handlers";
+	"Attribute::Handlers::BEGIN@15";
+	"Attribute::Handlers::BEGIN@17";
+	"Attribute::Handlers::BEGIN@124";
+	"Attribute::Handlers::BEGIN@148";
+	"Attribute::Handlers::BEGIN@199";
+	"Attribute::Handlers::BEGIN@5";
+}
+subgraph cluster_Data_DPath_Point {
+	label="Data::DPath::Point";
+	"Data::DPath::Point::BEGIN@10";
+}
+subgraph cluster_Data_DPath {
+	label="Data::DPath";
+	"Data::DPath::BEGIN@11";
+	"Data::DPath::BEGIN@2.8";
+}
+subgraph cluster_constant {
+	label="constant";
+	"constant::BEGIN@3";
+	"constant::BEGIN@114";
+	"constant::BEGIN@29";
+	"constant::BEGIN@52";
+}
+subgraph cluster_Class_XSAccessor {
+	label="Class::XSAccessor";
+	"Class::XSAccessor::BEGIN@3";
+}
+subgraph cluster_Exception_Class_Base {
+	label="Exception::Class::Base";
+	"Exception::Class::Base::BEGIN@6";
+	"Exception::Class::Base::BEGIN@43";
+	"Exception::Class::Base::BEGIN@63";
+}
+subgraph cluster_utf8 {
+	label="utf8";
+	"utf8::BEGIN@123";
+	"utf8::BEGIN@2";
+	"utf8::BEGIN@399";
+}
+subgraph cluster_Carp {
+	label="Carp";
+	"Carp::BEGIN@413";
+	"Carp::BEGIN@398";
+	"Carp::BEGIN@4";
+	"Carp::BEGIN@67";
+	"Carp::BEGIN@18";
+	"Carp::BEGIN@8";
+}
+subgraph cluster_Exception_Class {
+	label="Exception::Class";
+	"Exception::Class::BEGIN@168";
+	"Exception::Class::BEGIN@176";
+	"Exception::Class::BEGIN@8";
+	"Exception::Class::BEGIN@46";
+	"Exception::Class::BEGIN@79";
+}
+subgraph cluster_App_Rad_Help {
+	label="App::Rad::Help";
+	"App::Rad::Help::BEGIN@3";
+}
+subgraph cluster_Sub_Install {
+	label="Sub::Install";
+	"Sub::Install::BEGIN@4";
+	"Sub::Install::BEGIN@184";
+}
+subgraph cluster_AutoLoader {
+	label="AutoLoader";
+	"AutoLoader::BEGIN@138";
+	"AutoLoader::BEGIN@30";
+	"AutoLoader::BEGIN@3";
+	"AutoLoader::BEGIN@186";
+}
+"main::BEGIN@6" -> "strict::CORE:match";
+"strict::unimport" -> "strict::bits";
+"strict::import" -> "strict::bits";
+"main::BEGIN@6" -> "strict::bits";
+"App::Rad::BEGIN@121" -> "strict::unimport";
+"Config::BEGIN@45" -> "strict::unimport";
+"AutoLoader::BEGIN@138" -> "strict::unimport";
+"Carp::BEGIN@18" -> "strict::unimport";
+"constant::BEGIN@29" -> "strict::unimport";
+"Iterator::Util::BEGIN@284" -> "strict::unimport";
+"AutoLoader::BEGIN@186" -> "strict::unimport";
+"File::Spec::Unix::BEGIN@149" -> "strict::unimport";
+"Sub::Install::BEGIN@184" -> "strict::unimport";
+"Class::XSAccessor::Heavy::BEGIN@27" -> "strict::unimport";
+"utf8::BEGIN@123" -> "strict::unimport";
+"Iterator::Util::BEGIN@370" -> "strict::unimport";
+"Attribute::Handlers::BEGIN@148" -> "strict::unimport";
+"Safe::BEGIN@36" -> "strict::unimport";
+"Data::DPath::Context::BEGIN@424" -> "strict::unimport";
+"Exception::Class::BEGIN@176" -> "strict::unimport";
+"constant::BEGIN@52" -> "strict::unimport";
+"Exception::Class::BEGIN@79" -> "strict::unimport";
+"Data::DPath::Context::BEGIN@158" -> "strict::unimport";
+"main::BEGIN@1.9" -> "strict::unimport";
+"aliased::BEGIN@35" -> "strict::unimport";
+"SelfLoader::BEGIN@158" -> "strict::unimport";
+"Exception::Class::Base::BEGIN@63" -> "strict::unimport";
+"SelfLoader::BEGIN@91" -> "strict::unimport";
+"Exception::Class::BEGIN@46" -> "strict::unimport";
+"utf8::BEGIN@399" -> "strict::unimport";
+"Exception::Class::BEGIN@168" -> "strict::unimport";
+"Carp::BEGIN@67" -> "strict::unimport";
+"Data::DPath::Context::BEGIN@222" -> "strict::unimport";
+"Attribute::Handlers::BEGIN@199" -> "strict::unimport";
+"B::BEGIN@254" -> "strict::unimport";
+"Safe::BEGIN@344" -> "strict::unimport";
+"Carp::BEGIN@398" -> "strict::unimport";
+"Devel::StackTrace::Frame::BEGIN@11" -> "strict::unimport";
+"App::Rad::BEGIN@93" -> "strict::unimport";
+"constant::BEGIN@114" -> "strict::unimport";
+"Carp::BEGIN@8" -> "strict::unimport";
+"Exception::Class::Base::BEGIN@43" -> "strict::unimport";
+"IO::Handle::BEGIN@624" -> "strict::unimport";
+"Safe::BEGIN@337" -> "strict::unimport";
+"SelfLoader::BEGIN@73" -> "strict::unimport";
+"Safe::BEGIN@191" -> "strict::unimport";
+"Carp::BEGIN@413" -> "strict::unimport";
+"Exporter::Heavy::BEGIN@4" -> "strict::unimport";
+"Attribute::Handlers::BEGIN@15" -> "strict::unimport";
+"Safe::BEGIN@285" -> "strict::unimport";
+"Attribute::Handlers::BEGIN@124" -> "strict::unimport";
+"AutoLoader::BEGIN@30" -> "strict::unimport";
+"main::BEGIN@6" -> "strict::CORE:regcomp";
+"base::BEGIN@3" -> "strict::import";
+"Data::DPath::Context::BEGIN@10" -> "strict::import";
+"Iterator::Util::BEGIN@373" -> "strict::import";
+"Class::XSAccessor::Heavy::BEGIN@5" -> "strict::import";
+"Sub::Exporter::BEGIN@1" -> "strict::import";
+"utf8::BEGIN@2" -> "strict::import";
+"aliased::BEGIN@8" -> "strict::import";
+"Devel::StackTrace::Frame::BEGIN@6" -> "strict::import";
+"vars::BEGIN@8" -> "strict::import";
+"IO::BEGIN@7" -> "strict::import";
+"attributes::BEGIN@9" -> "strict::import";
+"List::MoreUtils::BEGIN@4" -> "strict::import";
+"POSIX::BEGIN@2" -> "strict::import";
+"Fcntl::BEGIN@58" -> "strict::import";
+"IO::Handle::BEGIN@261" -> "strict::import";
+"Config::BEGIN@9" -> "strict::import";
+"App::Rad::Help::BEGIN@3" -> "strict::import";
+"Text::Balanced::BEGIN@7" -> "strict::import";
+"File::Spec::Unix::BEGIN@3" -> "strict::import";
+"AutoLoader::BEGIN@3" -> "strict::import";
+"Class::XSAccessor::BEGIN@3" -> "strict::import";
+"Data::DPath::BEGIN@11" -> "strict::import";
+"Data::DPath::Filters::BEGIN@10" -> "strict::import";
+"SelfLoader::BEGIN@3" -> "strict::import";
+"B::BEGIN@9" -> "strict::import";
+"Class::XSAccessor::Array::BEGIN@3" -> "strict::import";
+"Scalar::Util::BEGIN@9" -> "strict::import";
+"Exception::Class::Base::BEGIN@6" -> "strict::import";
+"Carp::BEGIN@4" -> "strict::import";
+"Class::Data::Inheritable::BEGIN@3" -> "strict::import";
+"constant::BEGIN@3" -> "strict::import";
+"Exception::Class::BEGIN@8" -> "strict::import";
+"Iterator::Util::BEGIN@15" -> "strict::import";
+"File::Spec::BEGIN@3" -> "strict::import";
+"Safe::BEGIN@28" -> "strict::import";
+"Data::DPath::Context::BEGIN@15.4" -> "strict::import";
+"Opcode::BEGIN@5" -> "strict::import";
+"Params::Util::BEGIN@59" -> "strict::import";
+"SelfLoader::BEGIN@93" -> "strict::import";
+"List::Util::BEGIN@11" -> "strict::import";
+"Data::DPath::Path::BEGIN@10" -> "strict::import";
+"Attribute::Handlers::BEGIN@17" -> "strict::import";
+"Sub::Install::BEGIN@4" -> "strict::import";
+"Data::DPath::Attrs::BEGIN@10" -> "strict::import";
+"Attribute::Handlers::BEGIN@5" -> "strict::import";
+"main::BEGIN@6" -> "strict::import";
+"Devel::StackTrace::BEGIN@8" -> "strict::import";
+"Data::DPath::Point::BEGIN@10" -> "strict::import";
+"Data::DPath::Step::BEGIN@10" -> "strict::import";
+"App::Rad::BEGIN@6" -> "strict::import";
+"Exporter::Heavy::BEGIN@3" -> "strict::import";
+"Data::DPath::BEGIN@2.8" -> "strict::import";
+}

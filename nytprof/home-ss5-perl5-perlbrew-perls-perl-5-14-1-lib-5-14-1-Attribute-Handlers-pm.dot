@@ -1,0 +1,169 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_warnings {
+	label="warnings";
+	"warnings::unimport";
+	"warnings::import";
+}
+subgraph cluster_vars {
+	label="vars";
+	"vars::BEGIN@3";
+	"vars::BEGIN@8";
+	"vars::import";
+	"vars::BEGIN@7";
+}
+subgraph cluster_main {
+	label="main";
+	"main::BEGIN@1.9";
+	"main::BEGIN@1";
+	"main::RUNTIME";
+	"main::default";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::import";
+	"strict::unimport";
+}
+subgraph cluster_attributes {
+	label="attributes";
+	"attributes::BEGIN@9";
+	"attributes::import";
+	"attributes::CORE:qr";
+}
+subgraph cluster_XSLoader {
+	label="XSLoader";
+	"XSLoader::load";
+}
+subgraph cluster_UNIVERSAL {
+	label="UNIVERSAL";
+	"UNIVERSAL::Help";
+	"UNIVERSAL::can";
+}
+subgraph cluster_Attribute_Handlers {
+	label="Attribute::Handlers";
+	"Attribute::Handlers::END";
+	"Attribute::Handlers::__ANON__[Attribute/Handlers.pm:111]";
+	"Attribute::Handlers::CHECK";
+	"Attribute::Handlers::CORE:match";
+	"Attribute::Handlers::_gen_handler_AH_";
+	"Attribute::Handlers::BEGIN@104";
+	"Attribute::Handlers::CORE:subst";
+	"Attribute::Handlers::BEGIN@2";
+	"Attribute::Handlers::CORE:qr";
+	"Attribute::Handlers::BEGIN@148";
+	"Attribute::Handlers::BEGIN@199";
+	"Attribute::Handlers::import";
+	"Attribute::Handlers::BEGIN@110";
+	"Attribute::Handlers::INIT";
+	"Attribute::Handlers::_resolve_lastattr";
+	"Attribute::Handlers::BEGIN@17";
+	"Attribute::Handlers::findsym";
+	"Attribute::Handlers::BEGIN@6";
+	"Attribute::Handlers::BEGIN@3";
+	"Attribute::Handlers::BEGIN@215";
+	"Attribute::Handlers::BEGIN@4";
+	"Attribute::Handlers::BEGIN@5";
+	"Attribute::Handlers::__ANON__[Attribute/Handlers.pm:195]";
+	"Attribute::Handlers::BEGIN@15";
+	"Attribute::Handlers::BEGIN@124";
+	"Attribute::Handlers::BEGIN@236";
+	"Attribute::Handlers::_apply_handler_AH_";
+}
+subgraph cluster_Exporter {
+	label="Exporter";
+	"Exporter::import";
+}
+subgraph cluster_Carp {
+	label="Carp";
+	"Carp::BEGIN@398";
+	"Carp::BEGIN@105";
+	"Carp::BEGIN@4";
+	"Carp::BEGIN@18";
+	"Carp::BEGIN@8";
+	"Carp::BEGIN@5";
+	"Carp::BEGIN@17";
+	"Carp::BEGIN@413";
+	"Carp::BEGIN@399";
+	"Carp::BEGIN@7";
+	"Carp::BEGIN@406";
+	"Carp::BEGIN@67";
+	"Carp::BEGIN@3";
+}
+subgraph cluster_App_Rad_Help {
+	label="App::Rad::Help";
+	"App::Rad::Help::BEGIN@2";
+}
+subgraph cluster_Attribute_Handlers__TEST_ {
+	label="Attribute::Handlers::_TEST_";
+	"Attribute::Handlers::_TEST_::MODIFY_CODE_ATTRIBUTES";
+}
+"Attribute::Handlers::BEGIN@3" -> "Carp::BEGIN@18";
+"Attribute::Handlers::BEGIN@110" -> "attributes::CORE:qr";
+"App::Rad::Help::BEGIN@2" -> "Attribute::Handlers::CORE:qr";
+"App::Rad::Help::BEGIN@2" -> "Attribute::Handlers::BEGIN@148";
+"App::Rad::Help::BEGIN@2" -> "Attribute::Handlers::import";
+"App::Rad::Help::BEGIN@2" -> "Attribute::Handlers::BEGIN@110";
+"Attribute::Handlers::__ANON__[Attribute/Handlers.pm:195]" -> "Attribute::Handlers::_resolve_lastattr";
+"App::Rad::Help::BEGIN@2" -> "Attribute::Handlers::BEGIN@3";
+"Attribute::Handlers::_apply_handler_AH_" -> "main::default";
+"App::Rad::Help::BEGIN@2" -> "Attribute::Handlers::BEGIN@4";
+"Attribute::Handlers::BEGIN@215" -> "warnings::unimport";
+"Attribute::Handlers::BEGIN@236" -> "warnings::unimport";
+"Attribute::Handlers::BEGIN@3" -> "Exporter::import";
+"Attribute::Handlers::_apply_handler_AH_" -> "main::BEGIN@1.9";
+"Attribute::Handlers::__ANON__[Attribute/Handlers.pm:195]" -> "UNIVERSAL::can";
+"App::Rad::Help::BEGIN@2" -> "Attribute::Handlers::BEGIN@236";
+"main::RUNTIME" -> "Attribute::Handlers::END";
+"Attribute::Handlers::BEGIN@3" -> "Carp::BEGIN@4";
+"Attribute::Handlers::BEGIN@148" -> "strict::unimport";
+"Attribute::Handlers::BEGIN@199" -> "strict::unimport";
+"Attribute::Handlers::BEGIN@15" -> "strict::unimport";
+"Attribute::Handlers::BEGIN@124" -> "strict::unimport";
+"main::RUNTIME" -> "Attribute::Handlers::CHECK";
+"Attribute::Handlers::BEGIN@110" -> "attributes::import";
+"App::Rad::Help::BEGIN@2" -> "Attribute::Handlers::BEGIN@104";
+"App::Rad::Help::BEGIN@2" -> "Attribute::Handlers::BEGIN@2";
+"Attribute::Handlers::__ANON__[Attribute/Handlers.pm:195]" -> "Attribute::Handlers::CORE:subst";
+"Attribute::Handlers::BEGIN@3" -> "Carp::BEGIN@67";
+"App::Rad::Help::BEGIN@2" -> "Attribute::Handlers::BEGIN@199";
+"Attribute::Handlers::BEGIN@3" -> "Carp::BEGIN@105";
+"Attribute::Handlers::BEGIN@3" -> "Carp::BEGIN@5";
+"App::Rad::Help::BEGIN@2" -> "Attribute::Handlers::BEGIN@5";
+"Attribute::Handlers::BEGIN@4" -> "warnings::import";
+"App::Rad::Help::BEGIN@2" -> "Attribute::Handlers::BEGIN@15";
+"App::Rad::Help::BEGIN@2" -> "Attribute::Handlers::BEGIN@124";
+"attributes::import" -> "Attribute::Handlers::_TEST_::MODIFY_CODE_ATTRIBUTES";
+"Attribute::Handlers::END" -> "Attribute::Handlers::_apply_handler_AH_";
+"Attribute::Handlers::INIT" -> "Attribute::Handlers::_apply_handler_AH_";
+"Attribute::Handlers::CHECK" -> "Attribute::Handlers::_apply_handler_AH_";
+"Attribute::Handlers::__ANON__[Attribute/Handlers.pm:195]" -> "Attribute::Handlers::_apply_handler_AH_";
+"Attribute::Handlers::CHECK" -> "Attribute::Handlers::__ANON__[Attribute/Handlers.pm:111]";
+"Attribute::Handlers::__ANON__[Attribute/Handlers.pm:195]" -> "Attribute::Handlers::__ANON__[Attribute/Handlers.pm:111]";
+"Attribute::Handlers::BEGIN@3" -> "Carp::BEGIN@399";
+"App::Rad::Help::BEGIN@2" -> "Attribute::Handlers::_gen_handler_AH_";
+"Attribute::Handlers::BEGIN@6" -> "vars::BEGIN@8";
+"Attribute::Handlers::BEGIN@110" -> "attributes::BEGIN@9";
+"Attribute::Handlers::BEGIN@3" -> "Carp::BEGIN@3";
+"Attribute::Handlers::BEGIN@6" -> "vars::import";
+"App::Rad::Help::BEGIN@2" -> "Attribute::Handlers::BEGIN@6";
+"attributes::import" -> "Attribute::Handlers::__ANON__[Attribute/Handlers.pm:195]";
+"Attribute::Handlers::_apply_handler_AH_" -> "UNIVERSAL::Help";
+"Attribute::Handlers::BEGIN@3" -> "Carp::BEGIN@7";
+"Attribute::Handlers::BEGIN@3" -> "Carp::BEGIN@406";
+"Attribute::Handlers::__ANON__[Attribute/Handlers.pm:195]" -> "Attribute::Handlers::CORE:match";
+"Attribute::Handlers::BEGIN@6" -> "vars::BEGIN@3";
+"Attribute::Handlers::BEGIN@110" -> "XSLoader::load";
+"Attribute::Handlers::BEGIN@3" -> "Carp::BEGIN@398";
+"main::RUNTIME" -> "Attribute::Handlers::INIT";
+"App::Rad::Help::BEGIN@2" -> "Attribute::Handlers::BEGIN@17";
+"Attribute::Handlers::_resolve_lastattr" -> "Attribute::Handlers::findsym";
+"Attribute::Handlers::_apply_handler_AH_" -> "Attribute::Handlers::findsym";
+"App::Rad::Help::BEGIN@2" -> "Attribute::Handlers::BEGIN@215";
+"Attribute::Handlers::_apply_handler_AH_" -> "main::BEGIN@1";
+"Attribute::Handlers::BEGIN@3" -> "Carp::BEGIN@8";
+"Attribute::Handlers::BEGIN@3" -> "Carp::BEGIN@17";
+"Attribute::Handlers::BEGIN@3" -> "Carp::BEGIN@413";
+"Attribute::Handlers::BEGIN@17" -> "strict::import";
+"Attribute::Handlers::BEGIN@5" -> "strict::import";
+"Attribute::Handlers::BEGIN@6" -> "vars::BEGIN@7";
+}
