@@ -1,11 +1,11 @@
 package App::DPath;
-# git description: v0.04-7-g7d6b133
+# git description: v0.05-1-gedcb063
 
 BEGIN {
   $App::DPath::AUTHORITY = 'cpan:SCHWIGON';
 }
 {
-  $App::DPath::VERSION = '0.05';
+  $App::DPath::VERSION = '0.06';
 }
 # ABSTRACT: Cmdline tool around Data::DPath
 

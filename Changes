@@ -1,5 +1,8 @@
 Revision history for App-DPath
 
+0.06      2014-03-16
+        - same as 0.05; uploaded again without nytprof dumps
+
 0.05      2014-03-16
         - -i tap assumes TAP version 13
           (with TAP::Parser 3.22+)
